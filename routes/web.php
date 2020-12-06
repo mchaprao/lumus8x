@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+// MIDDLEWARE
+Route::group(['middleware' => 'auth'], function () {
+
+    // POSTS
+    // Route::resource('posts', \App\Http\Controllers\PostController::class);
+
+});
