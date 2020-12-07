@@ -22,6 +22,11 @@ class CreatePostsTable extends Migration
             $table->string('image_cover')->nullable();
             $table->string('image_thumbmail');
             $table->dateTime('published_at');
+            $table->unsignedBigInteger('author_id');
+
+            $table->foreign('author_id')
+                        ->references('id')
+                        ->on('users');
 
             $table->timestamps();
         });

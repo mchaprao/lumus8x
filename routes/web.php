@@ -27,4 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
     // POSTS
     // Route::resource('posts', \App\Http\Controllers\PostController::class);
 
+    // CATEGORIES
+    // Route::resource('category', \App\Http\Controllers\CategoryController::class);
+
 });
