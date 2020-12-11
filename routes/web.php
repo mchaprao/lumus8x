@@ -1,33 +1,37 @@
 <?php
 
+use App\Http\Controllers\Admin\{
+    PostController,
+    CategoryController,
+    UserController,
+    RoleController,
+    PlanController,
+};
+use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('/', [HomeController::class, 'home'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-// MIDDLEWARE
-Route::group(['middleware' => 'auth'], function () {
+    // DASHBOARD
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
     // POSTS
-    // Route::resource('posts', \App\Http\Controllers\PostController::class);
+    Route::resource('posts', PostController::class);
 
     // CATEGORIES
-    // Route::resource('category', \App\Http\Controllers\CategoryController::class);
+    Route::resource('categories', CategoryController::class);
+    
+    // USERS
+    Route::resource('users', UserController::class);
 
+    // PLANS
+    Route::resource('plans', PlanController::class);
+
+    // TENANTS
+    Route::resource('tenants', TenantController::class);
+
+    // ROLES
+    Route::resource('roles', RoleController::class);
 });

@@ -14,9 +14,9 @@ class Post extends Model
         'description',
         'content',
         'slug',
-        'image_cover',
-        'image_thumbmail',
-        'published_at'
+        'image',
+        'published_at',
+        'active'
     ];
 
     public function categories()

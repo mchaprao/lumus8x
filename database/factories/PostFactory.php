@@ -27,9 +27,10 @@ class PostFactory extends Factory
             'description' => $this->faker->text,
             'content' => $this->faker->randomHtml(),
             'slug' => $this->faker->slug,
-            'image_thumbmail' => $this->faker->imageUrl,
+            'image' => $this->faker->imageUrl,
             'author_id' => User::factory(),
             'published_at' => $this->faker->date,
+            'active' => true,
         ];
     }
 }

@@ -17,16 +17,17 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->longText('content');
+            $table->Text('content');
             $table->string('slug');
-            $table->string('image_cover')->nullable();
-            $table->string('image_thumbmail');
+            $table->string('image')->nullable();
             $table->dateTime('published_at');
+            $table->enum('active', ['Y', 'N'])->default('Y');
             $table->unsignedBigInteger('author_id');
 
             $table->foreign('author_id')
                         ->references('id')
-                        ->on('users');
+                        ->on('users')
+                        ->onDelete('cascade');
 
             $table->timestamps();
         });
