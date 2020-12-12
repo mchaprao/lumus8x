@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Lista de Perfis
+            Lista de Permissões do Perfil <strong>{{ $role->name }}</strong>
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('roles.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Novo Perfil</a>
+                <a href="{{ route('roles.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Nova Permissão</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -23,9 +23,9 @@
                                     <th scope="col" width="250" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Nome
                                     </th>
-                                    <th scope="col" width="250" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    {{-- <th scope="col" width="250" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Descrição
-                                    </th>
+                                    </th> --}}
                                     
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ações
@@ -33,29 +33,29 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ($roles as $role)
+                                @foreach ($permissions as $permission)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $role->id }}
+                                            {{ $permission->id }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $role->name }}
+                                            {{ $permission->name }}
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $role->description }}
-                                        </td>
+                                        </td> --}}
                                         
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('roles.show', $role->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver</a>
+                                            {{-- <a href="{{ route('roles.show', $role->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver</a>
                                             <a href="{{ route('roles.edit', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             <form class="inline-block" action="{{ route('roles.destroy', $role->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
-                                            </form>
-                                            <a href="{{ route('roles.permissions', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Permissão</a>
+                                            </form> --}}
+                                            <a href="{{ route('permissions.edit', $permissions->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Permissão</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,7 +63,7 @@
                             </table>
                         </div>                        
                         <div class="p-2 bg-gray-200">
-                            {{ $roles->links() }}
+                            {{ $permissions->links() }}
                         </div>
                     </div>
                 </div>
