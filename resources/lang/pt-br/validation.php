@@ -179,6 +179,7 @@ return [
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
         'abbreviation' => 'sigla',
+        'fantasy' => 'nome fantasia',
     ],
 
 ];

@@ -15,11 +15,17 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tenant_id');
+            $table->uuid('uuid');
             $table->string('name');
-            $table->string('description')->nullable();
-            $table->string('slug');
-            $table->enum('active', ['Y', 'N'])->default('Y');
+            $table->string('url');
+            $table->text('description');
             $table->timestamps();
+
+            $table->foreign('tenant_id')
+                        ->references('id')
+                        ->on('tenants')
+                        ->onDelete('cascade');
         });
     }
 

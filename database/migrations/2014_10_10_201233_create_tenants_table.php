@@ -14,9 +14,11 @@ class CreateTenantsTable extends Migration
     public function up()
     {
         Schema::create('tenants', function (Blueprint $table) {
-            $table->id();
+            $table->id();            
             $table->unsignedBigInteger('plan_id');
+            $table->uuid('uuid');
             $table->string('cnpj')->unique();
+            $table->string('fantasy');
             $table->string('name');
             $table->string('url');
             $table->string('email')->unique();            
@@ -34,7 +36,9 @@ class CreateTenantsTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->foreign('plan_id')
+                    ->references('id')
+                    ->on('plans');
         });
     }
 

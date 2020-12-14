@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
             PlanSeeder::class,
             TenantSeeder::class,
             UserSeeder::class,
-            // PostSeeder::class,
+            RoleSeeder::class,
             // CategorySeeder::class,
+            PermissionSeeder::class,            
         ]);
     }
 }

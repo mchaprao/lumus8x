@@ -20,6 +20,7 @@ class TenantSeeder extends Seeder
         $plan->tenants()->create([
             'cnpj'  => '32194832000182',
             'name'  => 'Lumus Soluções Ambientais ',
+            'fantasy'  => 'Lumus Soluções Ambientais ',
             'url'   => 'lumus-solucoes-ambientais',
             'email' => 'lumus@lumusambiental.com.br',
         ]);

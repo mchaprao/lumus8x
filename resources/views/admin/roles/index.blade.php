@@ -56,6 +56,7 @@
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
                                             </form>
                                             <a href="{{ route('roles.permissions', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Permissão</a>
+                                            <a href="{{ route('roles.plans', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Plano</a>
                                         </td>
                                     </tr>
                                 @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateUser;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class UserController extends Controller
     public function index()
     {        
         $users = $this->repository->orderby('id', 'desc')->paginate();
-
+        
         return view('admin.users.index', compact('users'));
     }
 

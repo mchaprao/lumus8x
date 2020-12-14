@@ -10,7 +10,7 @@ class Tenant extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cnpj', 'name', 'url', 'email', 'logo', 'active', 'subscription', 'expires_at',
+        'cnpj', 'name', 'fantasy', 'url', 'email', 'logo', 'active', 'subscription', 'expires_at',
         'subscription_id', 'subscription_active', 'subscription_suspended',
     ];
 

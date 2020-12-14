@@ -23,8 +23,7 @@
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="description" class="block font-medium text-sm text-gray-700">Descrição</label>
-                            <input type="text" name="description" id="description" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('description', $category->description) }}" />
+                            <textarea id="description" name="description" rows="4" class="form-textarea rounded-md shadow-sm mt-1 block w-full" placeholder="">{{ $category->description }}</textarea>
                             @error('description')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
