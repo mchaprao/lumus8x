@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlanRoleTable extends Migration
+class CreatePlanProperfilTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreatePlanRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('plan_role', function (Blueprint $table) {
+        Schema::create('plan_properfil', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('plan_id');
-            $table->unsignedBigInteger('role_id');
-
+            $table->unsignedBigInteger('properfil_id');            
+                      
             $table->foreign('plan_id')
                     ->references('id')
                     ->on('plans')
-                    ->onDelete('cascade');
-                    
-            $table->foreign('role_id')
+                    ->onDelete('cascade');            
+
+            $table->foreign('properfil_id')
                     ->references('id')
-                    ->on('roles')
+                    ->on('properfis')
                     ->onDelete('cascade');
         });
     }
@@ -37,6 +37,6 @@ class CreatePlanRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plan_role');
+        Schema::dropIfExists('plan_properfil');
     }
 }

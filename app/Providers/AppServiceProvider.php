@@ -2,14 +2,18 @@
 
 namespace App\Providers;
 
-use App\Models\Category;
-use App\Models\Plan;
-use App\Models\Product;
-use App\Models\Tenant;
-use App\Observers\CategoryObserver;
-use App\Observers\PlanObserver;
-use App\Observers\ProductObserver;
-use App\Observers\TenantObserver;
+use App\Models\{
+    Category,
+    Plan,
+    Product,
+    Tenant
+};
+use App\Observers\{
+    CategoryObserver,
+    PlanObserver,
+    ProductObserver,
+    TenantObserver
+};
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,5 +43,13 @@ class AppServiceProvider extends ServiceProvider
         Category::observe(CategoryObserver::class);
         Product::observe(ProductObserver::class);
         
+        /**
+         * Custom If Statements
+         */
+        // Blade::if('admin', function () {
+        //     $user = auth()->user();
+
+        //     return $user->isAdmin();
+        // });
     }
 }

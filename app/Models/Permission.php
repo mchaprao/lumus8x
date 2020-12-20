@@ -17,6 +17,14 @@ class Permission extends Model
     /**
      * Pegar Perfis
      */
+    public function properfis()
+    {
+        return $this->belongsToMany(Properfil::class);
+    }
+
+    /**
+     * Pegar Cargos
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class);

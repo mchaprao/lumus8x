@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Permissões disponíveis para o Perfil <strong>{{ $role->name }}</strong>
+            Permissões disponíveis para o Cargo <strong>{{ $role->name }}</strong>
         </h2>
     </x-slot>
 
@@ -40,7 +40,7 @@
                                             <td colspan="500">
                                                 @include('admin.includes.alerts')
                                                 
-                                                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vincular ao Perfil</button>
+                                                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vincular ao Cargo</button>
                                             </td>                                            
                                         </tr>  
                                     </form>

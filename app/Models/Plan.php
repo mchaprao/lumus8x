@@ -16,9 +16,9 @@ class Plan extends Model
         return $this->hasMany(DetailPlan::class);
     }
 
-    public function roles()
+    public function properfis()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsToMany(Properfil::class);
     }
 
     public function tenants()
@@ -29,15 +29,15 @@ class Plan extends Model
     /**
      * Perfis não linkado na Permissão
      */
-    public function RolesAvailable()
+    public function properfisAvailable()
     {
-        $roles = Role::whereNotIn('roles.id', function($query) {
-            $query->select('plan_role.role_id');
-            $query->from('plan_role');
-            $query->whereRaw("plan_role.plan_id={$this->id}");
+        $properfis = Properfil::whereNotIn('properfis.id', function($query) {
+            $query->select('plan_properfil.properfil_id');
+            $query->from('plan_properfil');
+            $query->whereRaw("plan_properfil.plan_id={$this->id}");
         })
         ->paginate();
 
-        return $roles;
+        return $properfis;
     }
 }

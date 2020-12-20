@@ -69,6 +69,7 @@
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
                                             </form>
+                                            <a href="{{ route('users.roles', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Cargos</a>
                                         </td>
                                     </tr>
                                 @endforeach

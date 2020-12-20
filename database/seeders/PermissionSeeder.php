@@ -16,24 +16,52 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             [
-                'name'           => 'Cliente - Lista',
+                'name'           => 'Clientes',
                 'description'    => 'Lista de Clientes',
             ],
             [
-                'name'           => 'Cliente - Cadastro',
-                'description'    => 'Cadastrar Cliente',
+                'name'           => 'Clientes - Adicionar',
+                'description'    => 'Adicionar Novo Cliente',
             ],
             [
-                'name'           => 'Cliente - Editar',
-                'description'    => 'Editar Cliente',
+                'name'           => 'Clientes - Editar',
+                'description'    => 'Editar cliente',
             ],
             [
-                'name'           => 'Cliente - Detalhes',
+                'name'           => 'Clientes - Detalhes',
                 'description'    => 'Detalhes do Cliente',
             ],
             [
-                'name'           => 'Cliente - Excluir',
+                'name'           => 'Clientes - Excluir',
                 'description'    => 'Excluir Cliente',
+            ],
+            [
+                'name'           => 'Perfil',
+                'description'    => 'Lista de Perfis',
+            ],
+            [
+                'name'           => 'Efluentes',
+                'description'    => 'Módulo Efluentes',
+            ],
+            [
+                'name'           => 'Documentos',
+                'description'    => 'Módulo Documentos e Licenças',
+            ],
+            [
+                'name'           => 'Permissão',
+                'description'    => 'Lista de Permissões',
+            ],
+            [
+                'name'           => 'Tecnicos',
+                'description'    => 'Módulo Técnicos',
+            ],
+            [
+                'name'           => 'Planos',
+                'description'    => 'Lista de Planos',
+            ],
+            [
+                'name'           => 'Usuarios',
+                'description'    => 'Lista de Usuarios',
             ],
         ];
 

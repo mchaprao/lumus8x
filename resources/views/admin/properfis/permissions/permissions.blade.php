@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Perfil do Plano <strong>{{ $plan->name }}</strong>
+            Permissões do Perfil <strong>{{ $properfil->name }}</strong>
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('plans.roles.available', $plan->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Perfil ao Plano</a>
+                <a href="{{ route('properfis.permissions.available', $properfil->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Permissão ao Perfil</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -26,14 +26,14 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">                                    
-                                    @foreach ($roles as $role)
+                                    @foreach ($permissions as $permission)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                {{ $role->name }}
+                                                {{ $permission->name }}
                                             </td>
                                             
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">                                                    
-                                                <a href="{{ route('plans.roles.detach', [$plan->id, $role->id]) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Desvincular</a>
+                                                <a href="{{ route('properfis.permissions.detach', [$properfil->id, $permission->id]) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Desvincular</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -41,7 +41,7 @@
                             </table>
                         </div>                        
                         <div class="p-2 bg-gray-200">
-                            {{ $roles->links() }}
+                            {{ $permissions->links() }}
                         </div>
                     </div>
                 </div>

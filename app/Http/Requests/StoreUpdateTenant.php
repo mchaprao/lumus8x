@@ -23,11 +23,13 @@ class StoreUpdateTenant extends FormRequest
      */
     public function rules()
     {
-        return [
+        $id = $this->segment(3);
+
+        $rules = [
             'name' => ['required', 'min:3', 'max:255'],
             'fantasy' => ['required', 'min:3', 'max:255'],
             'email' => ['required', 'min:3', 'max:255'],
-            'cnpj' => ['required', 'digits:14'],
+            'cnpj' => ['required', 'digits:14'. 'unique:tenants,cnpj,{$id},id'],
             'logo' => ['nullable', 'image'],
             'active' => ['required', 'in:Y,N'],
 
@@ -38,5 +40,7 @@ class StoreUpdateTenant extends FormRequest
             'subscription_active' => ['nullable', 'boolean'],
             'subscription_suspended' => ['nullable', 'boolean'],
         ];
+
+        return $rules;
     }
 }

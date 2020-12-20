@@ -19,4 +19,29 @@ class HomeController extends Controller
     {        
         return view('dashboard');
     }
+
+    public function dashEte()
+    {        
+        return view('admin.dashboards.dash-ete');
+    }
+
+    public function dashDoc()
+    {
+        return view('admin.dashboards.dash-doc');
+    }
+
+    public function dashTec()
+    {
+        return view('admin.dashboards.dash-tec');
+    }
+
+    public function dashPortal()
+    {
+        return view('admin.dashboards.dash-portal');
+    }
+
+    public function dashLogin()
+    {
+        return view('admin.dashboards.dash-login');
+    }
 }

@@ -1,16 +1,25 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Cadastrar Novo Perfil
+            Cadastrar Novo Usuário
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form method="post" action="{{ route('roles.store') }}">
+                <form method="post" action="{{ route('users.store') }}">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="tenant_id" class="block font-medium text-sm text-gray-700">Empresa</label>
+                            <input type="text" name="tenant_id" id="tenant_id" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('tenant_id', '') }}" />
+                            @error('tenant_id')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
                             <input type="text" name="name" id="name" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
@@ -38,13 +47,19 @@
                         </div>
 
                         {{-- <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
-                            <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                                @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
+                            <label for="tenant_id" class="block font-medium text-sm text-gray-700">Empresa</label>
+                            <select name="tenant_id" id="tenant_id" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                                --}}
+                                {{-- <?php 
+                                    Use App\Models\Tenant;
+                                    $tenants = Tenant::all();
+                                ?> --}}
+                              {{--  
+                                @foreach($tenants as $tenant)
+                                    <option value="{{ $tenant->id }}">{{ $tenant->name }}</option>
                                 @endforeach
                             </select>
-                            @error('roles')
+                            @error('tenant_id')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div> --}}

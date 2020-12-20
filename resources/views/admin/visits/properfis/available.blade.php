@@ -23,16 +23,16 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">                                
-                                    <form action="{{ route('plans.roles.attach', $plan->id) }}" method="POST">
+                                    <form action="{{ route('plans.properfis.attach', $plan->id) }}" method="POST">
                                         @csrf
 
-                                        @foreach ($roles as $role)
+                                        @foreach ($properfis as $properfil)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    <input type="checkbox" name="roles[]" value="{{ $role->id }}">
+                                                    <input type="checkbox" name="properfis[]" value="{{ $properfil->id }}">
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $role->name }}
+                                                    {{ $properfil->name }}
                                                 </td>                                            
                                             </tr>                                            
                                         @endforeach
@@ -48,7 +48,7 @@
                             </table>
                         </div>                        
                         <div class="p-2 bg-gray-200">
-                            {{ $roles->links() }}
+                            {{ $properfis->links() }}
                         </div>
                     </div>
                 </div>

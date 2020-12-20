@@ -13,6 +13,15 @@
                     @method('put')
                     <div class="shadow overflow-hidden sm:rounded-md">
                         <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="tenant_id" class="block font-medium text-sm text-gray-700">Empresa</label>
+                            <input type="text" name="tenant_id" id="tenant_id" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('tenant_id', $user->tenant_id) }}" />
+                            @error('tenant_id')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
                             <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('name', $user->name) }}" />

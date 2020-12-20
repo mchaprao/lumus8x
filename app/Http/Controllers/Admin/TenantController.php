@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateTenant;
 use App\Models\Tenant;
+use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +17,7 @@ class TenantController extends Controller
     {
         $this->repository = $tenant;
 
-        // $this->middleware(['can:tenants']);
+        $this->middleware(['can:Clientes']);
     }
 
     /**
@@ -27,8 +28,9 @@ class TenantController extends Controller
     public function index()
     {
         $tenants = $this->repository->latest()->paginate();
+        $plans = Plan::all();
 
-        return view('admin.tenants.index', compact('tenants'));
+        return view('admin.tenants.index', compact('tenants', 'plans'));
     }
 
     /**

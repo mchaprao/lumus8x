@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Perfil disponíveis para a Permissão <strong>{{ $permission->name }}</strong>
+            Perfil disponíveis para o Plano <strong>{{ $plan->name }}</strong>
         </h2>
     </x-slot>
 
@@ -23,16 +23,16 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">                                
-                                    <form action="{{ route('permissions.roles.attach', $permission->id) }}" method="POST">
+                                    <form action="{{ route('plans.properfis.attach', $plan->id) }}" method="POST">
                                         @csrf
 
-                                        @foreach ($roles as $role)
+                                        @foreach ($properfis as $properfil)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    <input type="checkbox" name="roles[]" value="{{ $role->id }}">
+                                                    <input type="checkbox" name="properfis[]" value="{{ $properfil->id }}">
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                    {{ $role->name }}
+                                                    {{ $properfil->name }}
                                                 </td>                                            
                                             </tr>                                            
                                         @endforeach
@@ -40,7 +40,7 @@
                                             <td colspan="500">
                                                 @include('admin.includes.alerts')
                                                 
-                                                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vincular ao Perfil</button>
+                                                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Vincular ao Plano</button>
                                             </td>                                            
                                         </tr>  
                                     </form>
@@ -48,7 +48,7 @@
                             </table>
                         </div>                        
                         <div class="p-2 bg-gray-200">
-                            {{ $roles->links() }}
+                            {{ $properfis->links() }}
                         </div>
                     </div>
                 </div>

@@ -20,14 +20,12 @@ class CategorySeeder extends Seeder
                 'name'           => 'Meio Ambiente',
                 'description'    => 'Meio Ambiente',
                 'slug'           => 'meio-ambiente',
-                'active'         => 'Y',
             ],
             [
                 'id'             => 2,
                 'name'           => 'Segurança do Trabalho',
                 'description'    => 'Segurança do Trabalho',
                 'slug'           => 'seguranca-do-trabalho',
-                'active'         => 'Y',
             ],
         ];
 

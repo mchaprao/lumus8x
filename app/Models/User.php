@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\UserACLTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -17,6 +18,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use UserACLTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'tenant_id',
     ];
 
     /**
@@ -67,5 +70,17 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function rolesAvailable($filter = null)
+    {
+        $roles = Role::whereNotIn('roles.id', function($query) {
+            $query->select('role_user.role_id');
+            $query->from('role_user');
+            $query->whereRaw("role_user.user_id={$this->id}");
+        })
+        ->paginate();
+
+        return $roles;
     }
 }

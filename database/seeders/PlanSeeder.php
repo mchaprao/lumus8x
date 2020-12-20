@@ -14,11 +14,21 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
-        Plan::create([
-            'name'        => 'ETE Mensal',
-            'url'         => 'ete-mensal',
-            'price'       => 2800,
-            'description' => 'Gerenciamento de ETE Mensal',
-        ]);
+        $plans = [
+            [
+                'name'        => 'ETE Mensal',
+                'url'         => 'ete-mensal',
+                'price'       => 2800,
+                'description' => 'Gerenciamento de ETE Mensal',
+            ],
+            [
+                'name'        => 'Documentos Mensal',
+                'url'         => 'documentos-mensal',
+                'price'       => 100,
+                'description' => 'Gerenciamento de Documentos Mensal',
+            ],
+        ];
+
+        Plan::insert($plans);
     }
 }

@@ -24,9 +24,14 @@ class StoreUpdateUser extends FormRequest
     public function rules()
     {
         return [
-            'name'     => ['string','required'],
-            'email'    => ['required','unique:users'],
-            'password' => ['required'],
+            'name'     => ['required', 'string', 'min:3', 'max:255'],
+            'email'    => ['required', 'string', 'email', 'min:3', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'max:16'],
         ];
+        if ($this->method() == 'PUT') {
+            $rules['password'] = ['nullable', 'string', 'min:8', 'max:16'];
+        }
+
+        return $rules;
     }
 }

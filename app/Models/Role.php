@@ -31,20 +31,12 @@ class Role extends Model
     }
 
     /**
-     * Get Plans
-     */
-    public function plans()
-    {
-        return $this->belongsToMany(Plan::class);
-    }
-
-    /**
-     * Permissões não linkado no Perfil
+     * Permissões não linkado no Cargo
      */
     public function PermissionsAvailable()
     {
-        $permissions = Permission::whereNotIn('id', function($query) {
-            $query->select('permission_id');
+        $permissions = Permission::whereNotIn('permissions.id', function($query) {
+            $query->select('permission_role.permission_id');
             $query->from('permission_role');
             $query->whereRaw("permission_role.role_id={$this->id}");
         })

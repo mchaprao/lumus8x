@@ -51,6 +51,6 @@ class UniqueTenant implements Rule
      */
     public function message()
     {
-        return 'O valor para :attribute já está em uso!';
+        return 'O :attribute já está em uso!';
     }
 }

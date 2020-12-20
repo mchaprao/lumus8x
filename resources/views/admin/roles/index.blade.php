@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Lista de Perfis
+            Lista de Cargos
         </h2>
     </x-slot>
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
-                <a href="{{ route('roles.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Novo Perfil</a>
+                <a href="{{ route('roles.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Novo Cargo</a>
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -56,7 +56,7 @@
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
                                             </form>
                                             <a href="{{ route('roles.permissions', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Permissão</a>
-                                            <a href="{{ route('roles.plans', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Plano</a>
+                                            {{-- <a href="{{ route('roles.plans', $role->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Plano</a> --}}
                                         </td>
                                     </tr>
                                 @endforeach

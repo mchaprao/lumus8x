@@ -11,6 +11,30 @@
                 <form method="post" action="{{ route('tenants.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
+                        {{-- <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="plan_id" class="block font-medium text-sm text-gray-700">Plano</label>
+                            <select id="plan_id" name="plan_id" autocomplete="plan_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        --}}
+                            {{-- <?php
+                                use App\Models\Plan;
+                                $plans = Plan::all();
+                            ?> --}}
+                        {{--w}}    
+                            @foreach($plans as $plan)
+                                <option value="{{ $plan->name }}">{{ $plan->name }}</option>
+                            @endforeach     
+                            </select>
+                        </div> --}}
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="plan_id" class="block font-medium text-sm text-gray-700">* Plano</label>
+                            <input type="text" name="plan_id" id="plan_id" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('plan_id', '') }}" />
+                            @error('plan_id')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="name" class="block font-medium text-sm text-gray-700">* Razão Social</label>
                             <input type="text" name="name" id="name" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
@@ -39,6 +63,15 @@
                             <input type="text" name="cnpj" id="cnpj" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('cnpj', '') }}" />
                             @error('cnpj')
+                                <p class="text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="email" class="block font-medium text-sm text-gray-700">* E-mail</label>
+                            <input type="email" name="email" id="email" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                                   value="{{ old('email', '') }}" />
+                            @error('email')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
