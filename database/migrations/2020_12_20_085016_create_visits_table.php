@@ -15,7 +15,14 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('tenant_id');
+            $table->dateTime('visit_at');
             $table->timestamps();
+
+            $table->foreign('tenant_id')
+                        ->references('id')
+                        ->on('tenants')
+                        ->onDelete('cascade');
         });
     }
 

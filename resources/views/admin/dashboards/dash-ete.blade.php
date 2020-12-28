@@ -18,7 +18,7 @@
                 {{-- <div class="text-center"> --}}
                     
                     <div class="row">
-                        <div class="flex  min-h-screen bg-gray-200 text-gray-800">
+                        {{-- <div class="flex  min-h-screen bg-gray-200 text-gray-800"> --}}
                             <div class="p-4 w-full">
                                 <div class="grid grid-cols-12 gap-4">
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
@@ -83,8 +83,87 @@
                                     </div>
                                 </div>
                             </div>
+                        {{-- </div> --}}
+                    </div><!-- FIM ROW --> 
+                    
+                    <div class="flex flex-row flex-wrap flex-grow mt-2">
+                        <div class="w-full md:w-1/2 p-3">
+                            <!--Graph Card-->
+                            <div class="bg-white border rounded shadow">
+                                <div class="border-b p-3">
+                                    <h5 class="font-bold uppercase text-gray-600">Gráfico Efluente Bruto - Outubro/2020</h5>
+                                </div>
+                                <div class="p-5">
+                                    <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+                                    <script>
+                                    new Chart(document.getElementById("chartjs-7"), {
+                                        "type": "bar",
+                                        "data": {
+                                            "labels": ["Temperatura", "pH", "DBO5", "DQO"],
+                                            "datasets": [{
+                                                "label": "Efluente Bruto",
+                                                "data": [31.2, 8, 90, 639],
+                                                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                                                "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                                                "borderWidth": 1
+                                            // }, {
+                                            //     "label": "Adsense Clicks",
+                                            //     "data": [5, 15, 10, 30],
+                                            //     "type": "line",
+                                            //     "fill": false,
+                                            //     "borderColor": "rgb(54, 162, 235)"
+                                            }]
+                                        },
+                                        "options": {
+                                            "scales": {
+                                                "yAxes": [{
+                                                    "ticks": {
+                                                        "beginAtZero": true
+                                                    }
+                                                }]
+                                            }
+                                        }
+                                    });
+                                    </script>
+                                </div>
+                            </div>
                         </div>
-                    </div><!-- FIM ROW -->                    
+                        <div class="w-full md:w-1/2 p-3">
+                            <!--Graph Card-->
+                            <div class="bg-white border rounded shadow">
+                                <div class="border-b p-3">
+                                    <h5 class="font-bold uppercase text-gray-600">Gráfico Efluente Tratado - Outubro/2020</h5>
+                                </div>
+                                <div class="p-5">
+                                    <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
+                                    <script>
+                                    new Chart(document.getElementById("chartjs-1"), {
+                                        "type": "bar",
+                                        "data": {
+                                            "labels": ["pH", "DBO5", "DQO", "O&G", "Coliformes Totais", "Coliformes Termo"],
+                                            "datasets": [{
+                                                "label": "Efluente Tratado",
+                                                "data": [7.8, 53, 90, 14.5, 1600, 1600],
+                                                "fill": false,
+                                                "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                                                "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                                                "borderWidth": 1
+                                            }]
+                                        },
+                                        "options": {
+                                            "scales": {
+                                                "yAxes": [{
+                                                    "ticks": {
+                                                        "beginAtZero": true
+                                                    }
+                                                }]
+                                            }
+                                        }
+                                    });
+                                    </script>
+                                </div>
+                        </div>
+                    </div>              
                 {{-- </div> --}}
             </div>
         </div>

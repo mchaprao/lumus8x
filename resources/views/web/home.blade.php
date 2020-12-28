@@ -1,136 +1,1092 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="pt-br">
 
-        <title>Lumus Soluções Ambientais</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lumus Soluções Ambientais empresa de meio ambiente e sustentabilidade.">
+    <title>Lumus Ambiental</title>
+    <!-- FONT GOOGLE -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FONT ICON -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/all.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('frontend/assets/css/fontawesome.min.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> --}}
+    
+    <!-- CAROUSEL PLUGIN -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/owl.carousel.min.css') }}">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
+</head>
 
-        <style>
-            body {
-                font-family: 'Nunito';
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+<body>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Registro</a>
-                        @endif
-                    @endauth
+{{-- DIALOG --}}
+<div class="dialog">
+    <button class="dialog-close">FECHAR <i class="fas fa-times-circle"></i></button>
+
+    {{-- dialog equipe - luiz vieira --}}
+    <div class="dialog-body dialog-equipe" id="luiz_vieira">
+        <div class="row dialog-body-header">
+            <p><strong>Luiz Vieira</strong></p>
+            <p><strong><span>Front-end</span></strong></p>
+        </div>
+
+        <div class="row">
+            <div class="dialog-cols">
+                <div class="dialog-equipe-photo">
+                    <img src="{{ asset('frontend/assets/images/equipe/luiz-vieira.jpg')}}" alt="Luiz Vieira">
                 </div>
-            @endif
-
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
+                <div class="dialog-equipe-redes">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-pinterest-p"></i></a>
                 </div>
-
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Planos</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    @foreach ($plans as $plan)
-
-                                        <span>{{ $plan->name }}</span><br>
-
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Home Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Home Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="dialog-cols">
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Biografia</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
                 </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Formação</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Experiências</span></p>
+                    <p>
+                        <strong>10/2017 - (Atual)</strong><br>
+                        Nome Empresa 3<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2016 - 10/2017</strong><br>
+                        Nome Empresa 2<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2015 - 10/2016</strong><br>
+                        Nome Empresa 1<br>
+                        programador front-end
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Habilidades</span></p>
+                    <ul class="dialog-equipe-habilidades">
+                        <li>
+                            <label>HTML5 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>CSS3 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>Wordpress <span>50%</span></label>
+                            <div><span style="width: 50%;"></span></div>
+                        </li>
+                        <li>
+                            <label>SASS <span>70%</span></label>
+                            <div><span style="width: 70%;"></span></div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+    {{-- end dialog equipe - luiz vieira --}}
+    {{-- dialog equipe - angela maria --}}
+    <div class="dialog-body dialog-equipe" id="angela_maria">
+        <div class="row dialog-body-header">
+            <p><strong>Angela Maria</strong></p>
+            <p><strong><span>Diretora de Arte</span></strong></p>
+        </div>
+
+        <div class="row">
+            <div class="dialog-cols">
+                <div class="dialog-equipe-photo">
+                    <img src="{{ asset('frontend/assets/images/equipe/angela-maria.jpg')}}" alt="Angela Maria">
+                </div>
+                <div class="dialog-equipe-redes">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="dialog-cols">
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Biografia</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Formação</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Experiências</span></p>
+                    <p>
+                        <strong>10/2017 - (Atual)</strong><br>
+                        Nome Empresa 3<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2016 - 10/2017</strong><br>
+                        Nome Empresa 2<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2015 - 10/2016</strong><br>
+                        Nome Empresa 1<br>
+                        programador front-end
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Habilidades</span></p>
+                    <ul class="dialog-equipe-habilidades">
+                        <li>
+                            <label>HTML5 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>CSS3 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>Wordpress <span>50%</span></label>
+                            <div><span style="width: 50%;"></span></div>
+                        </li>
+                        <li>
+                            <label>SASS <span>70%</span></label>
+                            <div><span style="width: 70%;"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end dialog equipe - angela maria --}}
+    {{-- dialog equipe - Marcos Viana --}}
+    <div class="dialog-body dialog-equipe" id="marcos_viana">
+        <div class="row dialog-body-header">
+            <p><strong>Marcos Viana</strong></p>
+            <p><strong><span>Diretor Geral</span></strong></p>
+        </div>
+
+        <div class="row">
+            <div class="dialog-cols">
+                <div class="dialog-equipe-photo">
+                    <img src="{{ asset('frontend/assets/images/equipe/marcos-viana.jpg')}}" alt="Marcos Viana">
+                </div>
+                <div class="dialog-equipe-redes">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="dialog-cols">
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Biografia</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Formação</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Experiências</span></p>
+                    <p>
+                        <strong>10/2017 - (Atual)</strong><br>
+                        Nome Empresa 3<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2016 - 10/2017</strong><br>
+                        Nome Empresa 2<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2015 - 10/2016</strong><br>
+                        Nome Empresa 1<br>
+                        programador front-end
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Habilidades</span></p>
+                    <ul class="dialog-equipe-habilidades">
+                        <li>
+                            <label>HTML5 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>CSS3 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>Wordpress <span>50%</span></label>
+                            <div><span style="width: 50%;"></span></div>
+                        </li>
+                        <li>
+                            <label>SASS <span>70%</span></label>
+                            <div><span style="width: 70%;"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end dialog equipe - marcos viana --}}
+    {{-- dialog equipe - Patricia Souza --}}
+    <div class="dialog-body dialog-equipe" id="patricia_souza">
+        <div class="row dialog-body-header">
+            <p><strong>Patricia Souza</strong></p>
+            <p><strong><span>Financeiro</span></strong></p>
+        </div>
+
+        <div class="row">
+            <div class="dialog-cols">
+                <div class="dialog-equipe-photo">
+                    <img src="{{ asset('frontend/assets/images/equipe/patricia-souza.jpg')}}" alt="Patricia Souza">
+                </div>
+                <div class="dialog-equipe-redes">
+                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                    <a href=""><i class="fab fa-instagram"></i></a>
+                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a href=""><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="dialog-cols">
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Biografia</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Formação</span></p>
+                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word</p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Experiências</span></p>
+                    <p>
+                        <strong>10/2017 - (Atual)</strong><br>
+                        Nome Empresa 3<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2016 - 10/2017</strong><br>
+                        Nome Empresa 2<br>
+                        programador front-end
+                    </p>
+                    <p>
+                        <strong>10/2015 - 10/2016</strong><br>
+                        Nome Empresa 1<br>
+                        programador front-end
+                    </p>
+                </div>
+                <div class="row">
+                    <p class="dialog-cols-header"><span>Habilidades</span></p>
+                    <ul class="dialog-equipe-habilidades">
+                        <li>
+                            <label>HTML5 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>CSS3 <span>90%</span></label>
+                            <div><span style="width: 90%;"></span></div>
+                        </li>
+                        <li>
+                            <label>Wordpress <span>50%</span></label>
+                            <div><span style="width: 50%;"></span></div>
+                        </li>
+                        <li>
+                            <label>SASS <span>70%</span></label>
+                            <div><span style="width: 70%;"></span></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- end dialog equipe - patricia souza --}}
+
+    {{-- PORTFOLIO --}}
+    {{-- dialog portfolio job_1 --}}
+
+    @foreach($posts as $post)        
+    
+    <div class="dialog-body dialog-portfolio" id="job_{{ $post->id }}">
+        <div class="dialog-cols">
+            {{-- Carrossel portfolio --}}
+            <div class="owl-carousel carousel_portfolio">
+                <div class="owl-lazy" data-src="{{ url('storage').'/'.$post->image }}">
+                    <div class="owl-caption">
+                        <p>{{ $post->title }}</p>
+                    </div>
+                </div>
+                <div class="owl-lazy" data-src="{{ url('storage').'/'.$post->image }}">
+                    <div class="owl-caption">
+                        <p>{{ $post->title }}</p>
+                    </div>
+                </div>
+            </div>
+            {{-- End Carrossel Portfolio --}}
+        </div>
+
+        <div class="dialog-cols">
+            <div class="row">
+                <p class="dialog-cols-header"><span>Descrição do Post</span></p>
+                <p>{{ $post->content }}</p>
+            </div>
+
+            <div class="row">
+                <p class="dialog-cols-header"><span>Detalhes do Post</span></p>
+                <ul>
+                    <li><strong>Autor:</strong> {{ $post->author_id }}</li>
+                    <li><strong>Data:</strong> {{ $post->published_at }}</li>
+                    <li><strong>Tags:</strong> Design, HTML, javaScript, PHP</li>
+                    <li><strong>URL:</strong> www.angrycriative.com.br</li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+    @endforeach
+    {{-- end dialog portfolio job_1--}}
+</div>
+{{-- end DIALOG --}}
+
+{{-- start HEADER --}}
+<header class="row header">
+    <h1 class="font-zero">Lumus Soluções Ambientais - Portal</h1>
+    <div class="content">
+        <div class="header-logo">
+            <a href="" title="Lumus Soluções Ambientais" class="back-top">
+                <img src="{{ asset('frontend/assets/images/logo-lumus-720-250-fr.png') }}"></a>
+        </div>
+
+        <a href="" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+
+        <div class="header-collapse">
+            <nav class="header-nav">
+                <h1 class="font-zero">Navegação do site</h1>
+                <ul>                    
+                    <li><a href="#home" title="Página Inicial" class="active">Página Inicial</a></li>
+                    <li><a href="#agencia" title="A Empresa" class="">Empresa</a></li>
+                    <li><a href="#servicos" title="Areas de Atuação" class="">Áreas de Atuação</a></li>
+                    <li><a href="#contato" title="Contato" class="">Contato</a></li>
+                    {{-- <li><a href="/login" title="Login" class="login-active">Área do Cliente</a></li> --}}
+                    
+                </ul>
+                
+            </nav>
+
+            <div class="header-search">
+                <form action="">
+                    <input type="search" name="busca" placeholder="PESQUISAR">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="header-redes">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                <a href=""><i class="fab fa-pinterest-p"></i></a>
+            </div>
+        </div>
+</header>
+{{-- end HEADER --}}
+
+{{-- Carrossel Principal --}}
+<div class="owl-carousel" id="carousel_principal">
+    @foreach($carousels as $carousel)
+        <div class="owl-lazy" data-src="{{ url('storage').'/'.$carousel->image }}">
+            <div class="owl-caption">
+                <p><strong>{{ $carousel->title }}</strong></p>
+                <p>{{ $carousel->description }}</p>
+            </div>
+        </div>   
+    @endforeach  
+</div>
+{{-- End Carrossel Principal --}}
+
+{{-- Agencia --}}
+<section class="section" id="agencia">
+    @foreach($webempresas as $webempresa)        
+    
+        <header class="section-header">
+            <div class="content">
+                <h1><span>Empresa</span></h1>                
+                <p class="tagline">
+                    {{ $webempresa->empresa }}
+                </p>
+            </div>
+        </header>
+
+        <div class="row agencia">
+            <div class="content">
+                <div class="agencia-title">
+                    <p>{{ $webempresa->title }}</p>
+                    <p><strong>{{ $webempresa->subtitle }}</strong></p>
+                </div>
+
+                <section class="agencia-item">
+                    <div class="agencia-item-icon">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h2>Inovação</h2>
+                    <p>{{ $webempresa->innovation }}</p>
+                </section>
+                <section class="agencia-item">
+                    <div class="agencia-item-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h2>Experimente</h2>
+                    <p>{{ $webempresa->experience }}</p>
+                </section>
+                <section class="agencia-item">
+                    <div class="agencia-item-icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </div>
+                    <h2>Perfeição</h2>
+                    <p>{{ $webempresa->perfection }}</p>
+                </section>
+            </div>
+        </div>
+    @endforeach
+</section>
+{{-- End Agencia --}}
+
+{{-- Curiosidades --}}
+{{-- <div class="row curiosidades">
+    <div class="content" style="text-decoration: none;">
+        <p>Veja algumas curiosidades sobre a nossa empresa</p>
+        <ul>
+            <li>
+                <span>100</span>
+                <label>Clientes atendidos</label>
+            </li>
+            <li>
+                <span>790</span>
+                <label>Prospecção</label>
+            </li>
+            <li>
+                <span>10</span>
+                <label>Trabalhos em andamento</label>
+            </li>
+            <li>
+                <span>800</span>
+                <label>Trabalhos realizados</label>
+            </li>
+        </ul>
+    </div>
+</div> --}}
+{{-- End Curiosidades --}}
+
+{{-- Equipe --}}
+{{-- <section class="section" id="equipe">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Equipe</span></h1>
+            <p class="tagline">
+                Nossos profissionais se destacam em equipe porque são apaixonados pela profissão e trabalho.
+                Isso nos torna únicos em todos os sentidos.
+            </p>
+        </div>
+    </header>
+
+    <div class="row equipe">
+        <div class="content">
+            <ul class="equipe-list">
+                <li>
+                    <div class="equipe-foto">
+                        <div class="equipe-foto-hover">
+                            <div>
+                                <span>Front-end</span>
+                                <p><a href="#luiz_vieira" class="dialog-open">Ver perfil</a></p>
+                            </div>
+                        </div>
+                        <img src="{{ asset('frontend/assets/images/equipe/luiz-vieira.jpg')}}" alt="Luiz Vieira">
+                    </div>
+                    <p class="equipe-title">
+                        <strong >Luiz Vieira</strong>
+                    </p>
+                </li>
+                <li>
+                    <div class="equipe-foto">
+                        <div class="equipe-foto-hover">
+                            <div>
+                                <span>Diretora de Arte</span>
+                                <p><a href="#angela_maria" class="dialog-open">Ver perfil</a></p>
+                            </div>
+                        </div>
+                        <img src="{{ asset('frontend/assets/images/equipe/angela-maria.jpg')}}" alt="Angela Maria">
+                    </div>
+                    <p class="equipe-title">
+                        <strong >Angela Maria</strong>
+                    </p>
+                </li>
+                <li>
+                    <div class="equipe-foto">
+                        <div class="equipe-foto-hover">
+                            <div>
+                                <span>Diretor Geral</span>
+                                <p><a href="#marcos_viana" class="dialog-open">Ver perfil</a></p>
+                            </div>
+                        </div>
+                        <img src="{{ asset('frontend/assets/images/equipe/marcos-viana.jpg')}}" alt="Marcos Viana">
+                    </div>
+                    <p class="equipe-title">
+                        <strong >Marcos Viana</strong>
+                    </p>
+                </li>
+                <li>
+                    <div class="equipe-foto">
+                        <div class="equipe-foto-hover">
+                            <div>
+                                <span>Financeiro</span>
+                                <p><a href="#patricia_souza" class="dialog-open">Ver perfil</a></p>
+                            </div>
+                        </div>
+                        <img src="{{ asset('frontend/assets/images/equipe/patricia-souza.jpg')}}" alt="Patrici Souza">
+                    </div>
+                    <p class="equipe-title">
+                        <strong >Patrícia Souza</strong>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section> --}}
+{{-- End Equipe --}}
+
+{{-- Serviços --}}
+<section class="section" id="servicos">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Serviços</span></h1>
+            <p class="tagline">
+                Nossos serviços são entregues por uma equipe com anos de experiência no mercado e apaixonados pelo desenvolvimento sustentável.
+            </p>
+        </div>
+    </header>
+
+    {{-- <div class="row servicos">
+        <div class="content">
+            <section class="servicos-item design">
+                <header>
+                    <i class="fas fa-pencil-alt"></i>
+                    <h2>Design</h2>
+                </header>
+                <div class="content">
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><strong>Oferecemos</strong></p>
+                    <ul>
+                        <li>Loren ipsum</li>
+                        <li>consectertus</li>
+                        <li>exectiontion</li>
+                    </ul>
+                    <a href="/login">Saiba Mais</a>
+                </div>
+            </section>
+            <section class="servicos-item estrategia">
+                <header>
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Estrategia</h2>
+                </header>
+                <div class="content">
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><strong>Oferecemos</strong></p>
+                    <ul>
+                        <li>Loren ipsum</li>
+                        <li>consectertus</li>
+                        <li>exectiontion</li>
+                    </ul>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </section>
+            <section class="servicos-item digital">
+                <header>
+                    <i class="fas fa-laptop"></i>
+                    <h2>Digital</h2>
+                </header>
+                <div class="content">
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><strong>Oferecemos</strong></p>
+                    <ul>
+                        <li>Loren ipsum</li>
+                        <li>consectertus</li>
+                        <li>exectiontion</li>
+                    </ul>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </section>
+            <section class="servicos-item marketing">
+                <header>
+                    <i class="fas fa-comments"></i>
+                    <h2>Marketing</h2>
+                </header>
+                <div class="content">
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p><strong>Oferecemos</strong></p>
+                    <ul>
+                        <li>Loren ipsum</li>
+                        <li>consectertus</li>
+                        <li>exectiontion</li>
+                    </ul>
+                    <a href="#">Saiba Mais</a>
+                </div>
+            </section>
+        </div>
+    </div> --}}
+
+</section>
+{{-- End Serviços --}}
+
+{{-- testemunhas --}}
+{{-- <section class="section">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Testemunhas</span></h1>
+            <p class="tagline">
+                Veja o que nossos clientes falam da Lumus pelo ótimo serviços prestados, tudo feito para trazer os melhores resultados para a sua empresas.
+            </p>
+        </div>
+    </header>
+
+    <div class="row testemunhas">
+        <div class="content">
+            <div class="owl-carousel" id="carousel_testemunhas">
+                <article class="testemunhas-item">
+                    <div class="testemunhas-photo">
+                        <img src="{{ asset('frontend/assets/images/testemunhas/luiz-vieira.jpg')}}" alt="Luiz Vieira">
+                    </div>
+                    <div class="testemunhas-info">
+                        <header>
+                            <h2>Luiz Vieira <span>Front-end</span></h2>
+                            <i class="fas fa-quote-right"></i>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </header>
+                    </div>
+                </article>
+                <article class="testemunhas-item">
+                    <div class="testemunhas-photo">
+                        <img src="{{ asset('frontend/assets/images/testemunhas/angela-maria.jpg')}}" alt="Angela Maria">
+                    </div>
+                    <div class="testemunhas-info">
+                        <header>
+                            <h2>Angela Maria <span>Diretora de Arte</span></h2>
+                            <i class="fas fa-quote-right"></i>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </header>
+                    </div>
+                </article>
+                <article class="testemunhas-item">
+                    <div class="testemunhas-photo">
+                        <img src="{{ asset('frontend/assets/images/testemunhas/marcos-viana.jpg')}}" alt="Marcos Viana">
+                    </div>
+                    <div class="testemunhas-info">
+                        <header>
+                            <h2>Marcos Viana <span>Diretor Geral</span></h2>
+                            <i class="fas fa-quote-right"></i>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </header>
+                    </div>
+                </article>
+                <article class="testemunhas-item">
+                    <div class="testemunhas-photo">
+                        <img src="{{ asset('frontend/assets/images/testemunhas/patricia-souza.jpg')}}" alt="Patricia Souza">
+                    </div>
+                    <div class="testemunhas-info">
+                        <header>
+                            <h2>Patrícia Souza <span>Financeiro</span></h2>
+                            <i class="fas fa-quote-right"></i>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </header>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section> --}}
+{{-- End testemunhas --}}
+
+{{-- portfolio --}}
+<section class="section" id="portfolio">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Portfolio</span></h1>
+            <p class="tagline">
+                Veja alguns de nossos trabalhos e contrate-nos para fazer seus serviços, pois ajudamos as empresas a vincular processos de negócios e pessoas.
+            </p>
+        </div>
+    </header>
+
+    <div class="row">
+        <ul class="portfolio-nav">
+            <li><a href="#" id="all" class="active">Todos</a></li>
+            <li><a href="#" id="websites">Websites</a></li>
+            <li><a href="#" id="sistemas">Sistemas</a></li>
+            <li><a href="#" id="design">Design</a></li>
+            <li><a href="#" id="logos">Logos</a></li>
+        </ul>
+    </div>
+
+    {{-- <div class="py-10">
+        <ul class="text-center uppercase ">
+            <li><a href="#" class="py-1 px-2 text-indigo-500 border-2 border-indigo-500 text-extrabold">Todos</a></li>
+        </ul>
+    </div> --}}
+
+    <div class="row">
+
+        @foreach($posts as $post)
+
+            <div class="portfolio visible websites design">
+                <div class="portfolio-hover">
+                    <div>
+                        <strong>{{ $post->title }}</strong>
+                        <label>{{ $post->published_at }} - {{ $post->author_id }}</label>
+                        <a href="#job_{{ $post->id }}" class="dialog-open"><i class="far fa-eye"></i></a>
+                    </div>
+                </div>
+                <img src="{{ url('storage').'/'.$post->image }}" alt="">
+            </div>
+
+        @endforeach
+
+        {{-- <div class="portfolio visible websites design">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Angry Criative</strong>
+                    <label>Websites, Design</label>
+                    <a href="#job_1" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/1.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas logos">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas, Logos</label>
+                    <a href="#job_2" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/2.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas logos websites">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas, Logos, Websites</label>
+                    <a href="#job_3" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/3.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_4" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/4.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_5" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/5.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_6" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/6.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_7" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/7.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_8" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/8.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_9" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/9.jpg')}}" alt="">
+        </div>
+        <div class="portfolio visible sistemas">
+            <div class="portfolio-hover">
+                <div>
+                    <strong>Wordpress</strong>
+                    <label>Sistemas</label>
+                    <a href="#job_10" class="dialog-open"><i class="far fa-eye"></i></a>
+                </div>
+            </div>
+            <img src="{{ asset('frontend/assets/images/portfolio/10.jpg')}}" alt="">
+        </div> --}}
+    </div>
+</section>
+{{-- End portfolio --}}
+
+{{-- clientes --}}
+{{-- <div class="row clientes">
+    <div class="content">
+        <p>Veja alguns de nossos clientes</p>
+        <ul>
+            <li><i class="fab fa-angrycreative"></i></li>
+            <li><i class="fab fa-windows"></i></li>
+            <li><i class="fab fa-wordpress"></i></li>
+            <li><i class="fab fa-weibo"></i></li>
+            <li><i class="fab fa-wpbeginner"></i></li>
+            <li><i class="fab fa-xbox"></i></li>
+        </ul>
+    </div>
+</div> --}}
+{{-- end clientes --}}
+
+{{-- blog --}}
+{{-- <section class="section" id="blog">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Blog</span></h1>
+            <p class="tagline">
+                Saíba mais de tudo o que acontece e as novidades das tecnologias mais mordernas do mercado atual. Confira isso e muito mais no nosso Blog.
+            </p>
+        </div>
+    </header>
+
+    <div class="row blog">
+        <div class="content">
+            <article class="blog-item">
+                <div class="blog-item-thumb">
+                    <span>01 agosto de 2020</span>
+                    <span><i class="fas fa-comment-dots"></i> 10</span>
+                    <img src="{{ asset('frontend/assets/images/blog/1.png')}}" alt="">
+                </div>
+                <div class="content">
+                    <h2>Sites estáticos e dinâmicos</h2>
+                    <p>São aqueles sites que não possuem banco de dados e nem ferramentas para gerenciamentos de conteúdos...</p>
+                    <p class="blog-link"><a href="#">Ler mais</a></p>
+                </div>
+            </article>
+
+            <article class="blog-item">
+                <div class="blog-item-thumb">
+                    <span>01 agosto de 2020</span>
+                    <span><i class="fas fa-comment-dots"></i> 11</span>
+                    <img src="{{ asset('frontend/assets/images/blog/2.png')}}" alt="">
+                </div>
+                <div class="content">
+                    <h2>Termos e definições do CSS</h2>
+                    <p>Devemos ser consistentes no uso dos termos no que diz respeito ao CSS. Muitas coisas são bastante fáceis para a maioria rientes, mas...</p>
+                    <p class="blog-link"><a href="#">Ler mais</a></p>
+                </div>
+            </article>
+
+            <article class="blog-item">
+                <div class="blog-item-thumb">
+                    <span>01 agosto de 2020</span>
+                    <span><i class="fas fa-comment-dots"></i> 12</span>
+                    <img src="{{ asset('frontend/assets/images/blog/3.jpg')}}" alt="">
+                </div>
+                <div class="content">
+                    <h2>O que é HTML?</h2>
+                    <p>Então, HTML é um tipo especial de documento de texto que é usado pelos navegadores da Web para apresentar textos e gráficos...</p>
+                    <p class="blog-link"><a href="#">Ler mais</a></p>
+                </div>
+            </article>
+
+            <article class="blog-item">
+                <div class="blog-item-thumb">
+                    <span>01 agosto de 2020</span>
+                    <span><i class="fas fa-comment-dots"></i> 15</span>
+                    <img src="{{ asset('frontend/assets/images/blog/4.png')}}" alt="">
+                </div>
+                <div class="content">
+                    <h2>Breve história do HTML</h2>
+                    <p>Nos primeiros cinco anos (1990-1995), o HTML passou por várias revisões e experimentou várias extensões, hospedadas primeiramente...</p>
+                    <p class="blog-link"><a href="#">Ler mais</a></p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section> --}}
+{{-- End blog --}}
+
+{{-- contato --}}
+<section class="section bg-gray-100" id="contato">
+    <header class="section-header">
+        <div class="content">
+            <h1><span>Contato</span></h1>
+            <p class="tagline">
+                Queremos muito ouvir você, então por que não nos enviar um e-mail? Entraremos em contato com você o mais breve possível.
+            </p>
+        </div>
+    </header>
+
+    <div class="row py-8 text-center font-extrabold text-3xl">
+        <div class="content">
+            <p><span>lumus@lumusambiental.com.br</span></p>
+            <p><span>   81 9 9900 1276</span> </p>
+            {{-- Rua Ouricuri, 90 - Santo Antônio<br> Igarassu - PE --}}
+        </div>
+    </div>
+
+    {{-- <div class="row contato-form">
+        <div class="content">
+            <p><i class="fab fa-wpforms"></i></p>
+            <form action="">
+                <div>
+                    <label>
+                        <span>Nome</span>
+                        <input type="text" name="nome" />
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" name="email" />
+                    </label>
+                    <label>
+                        <input type="checkbox" name="nome" />
+                        <span>Deseja receber novidades e promoções?</span>
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <span>Mensagem</span>
+                        <textarea name="mensagem"></textarea>
+                    </label>
+                    <button>
+                        <i class="far fa-envelope"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div> --}}
+</section>
+{{-- End contato --}}
+
+
+<div class="bg-gray-100">
+	
+		<div class="container w-full max-w-6xl mx-auto px-2 py-8">
+			<div class="flex flex-wrap -mx-2">
+                @foreach($posts as $post)
+                <div class="w-full md:w-1/3 px-2 pb-12">
+					<div class="h-full bg-gray-200 rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
+						<a href="#" class="bg-red-900 no-underline hover:no-underline">
+								<img src="{{ url('storage').'/'.$post->image }}" class="h-48 w-full rounded-t shadow-lg">
+								<div class="p-4 h-auto md:h-12">	
+									<p class="text-green-600 text-xs md:text-sm text-extrabold uppercase">{{ $post->title }}</p>
+								</div>
+						</a>
+					</div>
+				</div>
+                @endforeach
+
+            </div>
+        </div>
+
+</div>
+
+<footer>
+    <div class="container mx-auto bg-gray-600">
+        <div class="flex space-x-4 text-center text-white">
+            <div class="flex-1 self-center text-3xl">
+                <a href=""><i class="p-2 fab fa-facebook-f"></i></a>
+                <a href=""><i class="p-2 fab fa-instagram"></i></a>
+                <a href=""><i class="p-2 fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="flex-1 p-8">
+                <a href="">
+                    <img class="h-20 ml-20" src="{{ asset('frontend/assets/images/logo-lumus-720-250-fr-br.png') }}">
+                </a>
+            </div>
+            <div class="flex-1 self-center">
+                <p>Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+{{-- footer --}}
+<!-- <footer class="row footer">
+    <div class="content">
+        <div class="footer-col footer-redes">
+            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href=""><i class="fab fa-linkedin-in"></i></a>
+            {{-- <a href=""><i class="fab fa-pinterest-p"></i></a> --}}
+        </div>
+
+        <div class="footer-col footer-logo">
+            <a href="" class="back-top">
+                <img src="{{ asset('frontend/assets/images/logo-lumus-720-250-fr-br.png') }}">
+            </a>
+        </div>
+
+        <div class="footer-col footer-copyright">
+            <p>Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer> -->
+{{-- End footer --}}
+
+<script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/script.js') }}"></script>
+
+</body>
+
 </html>

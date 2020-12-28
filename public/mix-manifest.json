@@ -1,4 +1,21 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/frontend/assets/css/owl.carousel.min.css": "/frontend/assets/css/owl.carousel.min.css",
+    "/frontend/assets/css/style.carousel.css": "/frontend/assets/css/style.carousel.css",
+    "/frontend/assets/css/bootstrap.min.css": "/frontend/assets/css/bootstrap.min.css",
+    "/frontend/assets/css/reset.css": "/frontend/assets/css/reset.css",
+    "/frontend/assets/css/style.css": "/frontend/assets/css/style.css",
+    "/frontend/assets/css/fontawesome.min.css": "/frontend/assets/css/fontawesome.min.css",
+    "/frontend/assets/css/all.css": "/frontend/assets/css/all.css",
+    "/frontend/assets/js/jquery.js": "/frontend/assets/js/jquery.js",
+    "/frontend/assets/js/script.js": "/frontend/assets/js/script.js",
+    "/frontend/assets/js/owl.carousel.min.js": "/frontend/assets/js/owl.carousel.min.js",
+    "/frontend/assets/js/owl.carousel.js": "/frontend/assets/js/owl.carousel.js",
+    "/frontend/assets/js/bootstrap.js": "/frontend/assets/js/bootstrap.js",
+    "/frontend/assets/js/bootstrap.bundle.min.js": "/frontend/assets/js/bootstrap.bundle.min.js",
+    "/frontend/assets/js/bootstrap.min.js": "/frontend/assets/js/bootstrap.min.js",
+    "/frontend/assets/js/popper.min.js": "/frontend/assets/js/popper.min.js",
+    "/frontend/assets/js/all.js": "/frontend/assets/js/all.js",
+    "/frontend/assets/js/Chart.js": "/frontend/assets/js/Chart.js"
 }

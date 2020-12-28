@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Carousel;
 use App\Models\Plan;
+use App\Models\Post;
+use App\Models\WebEmpresa;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,8 +14,11 @@ class HomeController extends Controller
     public function home()
     {
         $plans = Plan::with('details')->orderBy('price', 'ASC')->get();
+        $carousels = Carousel::all();
+        $webempresas = WebEmpresa::all();
+        $posts = Post::all();
 
-        return view('web.home', compact('plans'));
+        return view('web.home', compact('plans', 'carousels', 'webempresas', 'posts'));
     }
 
     public function dashboard()

@@ -2,87 +2,104 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Post;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePost;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    private $repository;
+
+    public function __construct(Post $post)
     {
-        $posts = Post::orderby('id', 'desc')->paginate();
+        $this->repository = $post;
+
+        $this->middleware(['can:Posts']);
+    }
+
+    public function index()
+    {        
+        $posts = $this->repository->orderby('id', 'desc')->paginate();
 
         return view('admin.posts.index', compact('posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.posts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreUpdatePost $request)
     {
-        //
+        $data = $request->all();
+
+        $tenant = auth()->user()->tenant;
+
+        if ($request->hasFile('image') && $request->image->isValid()) {
+            $data['image'] = $request->image->store("tenants/{$tenant->uuid}/posts");
+        }
+        
+        $this->repository->create($data);
+
+        return redirect()->route('posts.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        return view('posts.show', compact('post'));
+        if (!$post = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        return view('admin.posts.show', compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        if (!$post = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        return view('admin.posts.edit', compact('post'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(StoreUpdatePost $request, $id)
     {
-        //
+        if (!$post = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        $data = $request->all();
+
+        $tenant = auth()->user()->tenant;
+
+        if ($request->hasFile('image') && $request->image->isValid()) {
+
+            if (Storage::exists($post->image)) {
+                Storage::delete($post->image);
+            }
+
+            $data['image'] = $request->image->store("tenants/{$tenant->uuid}/posts");
+        }
+
+        $post->update($data);
+
+        return redirect()->route('posts.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        if (!$post = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        if (Storage::exists($post->image)) {
+            Storage::delete($post->image);
+        }
+
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

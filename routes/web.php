@@ -9,7 +9,9 @@ use App\Http\Controllers\Admin\{
     TenantController,
     ProductController,
     CategoryProductController,
-    VisitController
+    VisitController,
+    CarouselController,
+    WebEmpresaController
 };
 use App\Http\Controllers\Admin\ACL\{    
     RoleController,
@@ -45,6 +47,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 
     // CATEGORIES
     Route::resource('categories', CategoryController::class);
+
+    // Página da Web
+    Route::resource('carousels', CarouselController::class);
+    Route::resource('web-empresa', WebEmpresaController::class);
     
     // USERS
     Route::resource('users', UserController::class);

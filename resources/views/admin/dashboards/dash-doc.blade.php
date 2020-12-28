@@ -18,7 +18,7 @@
                 {{-- <div class="text-center"> --}}
                     
                     <div class="row">
-                        <div class="flex  min-h-screen bg-gray-200 text-gray-800">
+                        {{-- <div class="flex  min-h-screen bg-gray-200 text-gray-800"> --}}
                             <div class="p-4 w-full">
                                 <div class="grid grid-cols-12 gap-4">
                                 <div class="col-span-12 sm:col-span-6 md:col-span-3">
@@ -77,7 +77,7 @@
                                 </div>
                                 </div> --}}
                             </div>
-                        </div>
+                        {{-- </div> --}}
                     </div><!-- FIM ROW -->                    
                 {{-- </div> --}}
             </div>

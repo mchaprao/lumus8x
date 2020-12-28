@@ -16,11 +16,13 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('plans.index') }}" :active="request()->routeIs('plans*')">
-                        {{ __('Planos') }}
+                @can('Efluentes')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('dash.ete') }}" :active="request()->routeIs('efluentes*')">
+                        {{ __('Efluentes') }}
                     </x-jet-nav-link>
-                </div> --}}
+                </div>
+                @endcan                
 
                 {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.*')">
