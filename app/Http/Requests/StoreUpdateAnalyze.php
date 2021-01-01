@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Tenant\Rules\UniqueTenant;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateUser extends FormRequest
+class StoreUpdateAnalyze extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +24,15 @@ class StoreUpdateUser extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name'     => ['required', 'string', 'min:3', 'max:255'],
-            'email'    => ['required', 'string', 'email', 'min:3', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:16'],
+        $id = $this->segment(2);
+
+        $rules = [            
+             'date_analyzes' => ['required'],
+             'arquivo' => ['nullable'],
         ];
+        
         if ($this->method() == 'PUT') {
-            $rules['password'] = ['nullable', 'string', 'min:8', 'max:16'];
+            $rules['arquivo'] = ['nullable'];
         }
 
         return $rules;

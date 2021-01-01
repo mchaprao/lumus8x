@@ -11,28 +11,14 @@
                 <form method="post" action="{{ route('tenants.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="shadow overflow-hidden sm:rounded-md">
-                        {{-- <div class="px-4 py-5 bg-white sm:p-6">
+                        <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="plan_id" class="block font-medium text-sm text-gray-700">Plano</label>
                             <select id="plan_id" name="plan_id" autocomplete="plan_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        --}}
-                            {{-- <?php
-                                use App\Models\Plan;
-                                $plans = Plan::all();
-                            ?> --}}
-                        {{--w}}    
+                       
                             @foreach($plans as $plan)
-                                <option value="{{ $plan->name }}">{{ $plan->name }}</option>
+                                <option value="{{ $plan->id }}">{{ $plan->name }}</option>
                             @endforeach     
                             </select>
-                        </div> --}}
-
-                        <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="plan_id" class="block font-medium text-sm text-gray-700">* Plano</label>
-                            <input type="text" name="plan_id" id="plan_id" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('plan_id', '') }}" />
-                            @error('plan_id')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -130,6 +116,9 @@
                         </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button class="inline-flex items-center mr-2 px-4 py-2 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                <a href="{{ route('tenants.index') }}">Cancelar</a>
+                            </button>
                             <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                 Cadastrar
                             </button>

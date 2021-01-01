@@ -40,7 +40,9 @@ class TenantController extends Controller
      */
     public function create()
     {
-        return view('admin.tenants.create');
+        $plans = Plan::all();
+
+        return view('admin.tenants.create', compact('plans'));
     }
 
     /**
@@ -51,9 +53,11 @@ class TenantController extends Controller
      */
     public function store(StoreUpdateTenant $request)
     {
+        $plans = Plan::all();
+
         $this->repository->create($request->all());
 
-        return redirect()->route('tenants.index');
+        return redirect()->route('tenants.index', compact('plans'));
     }
 
     /**
@@ -64,11 +68,13 @@ class TenantController extends Controller
      */
     public function show($id)
     {
+        $plans = Plan::all();
+
         if (!$tenant = $this->repository->with('plan')->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.tenants.show', compact('tenant'));
+        return view('admin.tenants.show', compact('tenant', 'plans'));
     }
 
     /**
@@ -79,11 +85,13 @@ class TenantController extends Controller
      */
     public function edit($id)
     {
+        $plans = Plan::all();
+
         if (!$tenant = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.tenants.edit', compact('tenant'));
+        return view('admin.tenants.edit', compact('tenant', 'plans'));
     }
 
 
@@ -101,7 +109,7 @@ class TenantController extends Controller
             return redirect()->back();
         }
 
-        // $data = $request->all();
+        $data = $request->all();
 
         // if ($request->hasFile('logo') && $request->logo->isValid()) {
 

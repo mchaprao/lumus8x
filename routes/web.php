@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Admin\{
+    AnalyzeController,
     PostController,
     CategoryController,
     UserController,
@@ -11,6 +12,11 @@ use App\Http\Controllers\Admin\{
     CategoryProductController,
     VisitController,
     CarouselController,
+    ChartJsController,
+    LaboratoryController,
+    LocalAnalyzeController,
+    ParameterAnalyzeController,
+    UserTenantController,
     WebEmpresaController
 };
 use App\Http\Controllers\Admin\ACL\{    
@@ -52,8 +58,12 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::resource('carousels', CarouselController::class);
     Route::resource('web-empresa', WebEmpresaController::class);
     
-    // USERS
+    // USERS       
     Route::resource('users', UserController::class);
+    Route::resource('users-tenant', UserTenantController::class); 
+
+    // CHARTJS
+    Route::get('chartjs', [ChartJsController::class, 'index'])->name('chartjs.index'); 
 
     // PLANS
     Route::resource('plans', PlanController::class);
@@ -77,17 +87,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::resource('permissions', PermissionController::class);
 
     // PERMISSION x ROLE
-    Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionsRole'])->name('roles.permissions.detach');
-    Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attach');
-    Route::get('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
-    Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
-
-    // Permission x Role
-    // Route::get('permissions/{id}/roles/{idRole}/detach', [PermissionRoleController::class, 'detachRolesPermission'])->name('permissions.roles.detach');
-    // Route::post('permissions/{id}/roles', [PermissionRoleController::class, 'attachRolesPermission'])->name('permissions.roles.attach');
-    // Route::get('permissions/{id}/roles/create', [PermissionRoleController::class, 'rolesAvailable'])->name('permissions.roles.available');
-    // Route::get('permissions/{id}/roles', [PermissionRoleController::class, 'roles'])->name('permissions.roles');
-
+    // Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionsRole'])->name('roles.permissions.detach');
+    // Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attach');
+    // Route::get('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
+    // Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
 
     Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionRole'])->name('roles.permissions.detach');
     Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attach');
@@ -123,4 +126,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::get('users/{id}/roles', [RoleUserController::class, 'roles'])->name('users.roles');
     Route::get('roles/{id}/users', [RoleUserController::class, 'users'])->name('roles.users');
 
+    // Laboratório
+    Route::resource('parameters', ParameterAnalyzeController::class);
+    Route::resource('analyzes', AnalyzeController::class);
+    Route::resource('locations', LocalAnalyzeController::class);
+    Route::resource('laboratories', LaboratoryController::class);
+
+});
+
+Route::fallback(function() {
+    return view('404');
 });

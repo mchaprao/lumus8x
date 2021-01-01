@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\{
+    Analyze,
     Carousel,
     Category,
     Plan,
@@ -11,6 +12,7 @@ use App\Models\{
     Tenant
 };
 use App\Observers\{
+    AnalyzeObserver,
     CarouselObserver,
     CategoryObserver,
     PlanObserver,
@@ -48,6 +50,7 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         Carousel::observe(CarouselObserver::class);
         Post::observe(PostObserver::class);
+        Analyze::observe(AnalyzeObserver::class);
         
         /**
          * Custom If Statements

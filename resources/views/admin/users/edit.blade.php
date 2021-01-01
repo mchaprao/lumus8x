@@ -12,17 +12,21 @@
                     @csrf
                     @method('put')
                     <div class="shadow overflow-hidden sm:rounded-md">
+
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="tenant_id" class="block font-medium text-sm text-gray-700">Empresa</label>
-                            <input type="text" name="tenant_id" id="tenant_id" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   value="{{ old('tenant_id', $user->tenant_id) }}" />
+                            <label for="tenant_id" class="block font-medium text-sm text-gray-700">Empresa do Usuário</label>
+                            <select name="tenant_id" id="tenant_id" class="form-select rounded-md shadow-sm mt-1 block w-full">
+                                @foreach($tenants as $tenant)
+                                    <option value="{{ $tenant->id }}">{{ $tenant->name }}</option>
+                                @endforeach
+                            </select>
                             @error('tenant_id')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="name" class="block font-medium text-sm text-gray-700">Nome</label>
+                            <label for="name" class="block font-medium text-sm text-gray-700">Nome do Usuário</label>
                             <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"
                                    value="{{ old('name', $user->name) }}" />
                             @error('name')
@@ -45,27 +49,19 @@
                             @error('password')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
-                        </div>
-
-                        {{-- <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="roles" class="block font-medium text-sm text-gray-700">Roles</label>
-                            <select name="roles[]" id="roles" class="form-multiselect block rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                                @foreach($roles as $id => $role)
-                                    <option value="{{ $id }}"{{ in_array($id, old('roles', $user->roles->pluck('id')->toArray())) ? ' selected' : '' }}>
-                                        {{ $role }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('roles')
-                                <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-                        </div> --}}
+                        </div>                        
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
+                            <button class="inline-flex items-center mr-2 px-4 py-2 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                                <a href="{{ route('users.index') }}">Cancelar</a>
+                            </button>
                             <button class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                                 Editar
                             </button>
                         </div>
+                        {{-- <div class="block mt-8">
+                            <a href="{{ route('users.index') }}" class="bg-gray-200 hover:bg-gray-300 text-black font-bold py-2 px-4 rounded">Lista de Usuários</a>
+                        </div> --}}
                     </div>
                 </form>
             </div>

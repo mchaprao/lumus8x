@@ -22,9 +22,9 @@
                                     <th scope="col" width="100" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Data Agendada
                                     </th>
-                                    <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    {{-- <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Solicitante
-                                    </th>
+                                    </th> --}}
                                     <th scope="col" width="150" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Técnico
                                     </th>
@@ -48,10 +48,10 @@
                                             25/12/2020
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"> --}}
                                             {{-- {{ $plan->name }} --}}
-                                            Magdala Barbosa
-                                        </td>
+                                            {{-- Magdala Barbosa --}}
+                                        {{-- </td> --}}
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{-- {{ $plan->name }} --}}

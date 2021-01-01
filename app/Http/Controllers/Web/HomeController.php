@@ -27,8 +27,18 @@ class HomeController extends Controller
     }
 
     public function dashEte()
-    {        
-        return view('admin.dashboards.dash-ete');
+    { 
+        $grafico = [
+            'Teste 1' => 100,
+            'Teste 2' => 300,
+            'Teste 3' => 200,
+            'Teste 4' => 400,
+        ];
+
+        $labels = json_encode(array_keys($grafico));
+        $values = json_encode(array_values($grafico));
+
+        return view('admin.dashboards.dash-ete', compact('labels', 'values'));
     }
 
     public function dashDoc()

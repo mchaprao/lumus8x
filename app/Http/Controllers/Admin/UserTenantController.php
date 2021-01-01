@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class UserTenantController extends Controller
 {
     private $repository;
 
@@ -19,22 +19,25 @@ class UserController extends Controller
     {
         $this->repository = $user;
 
-        $this->middleware(['can:Users']);
+        $this->middleware(['can:Usuarios']);
     }
-
+    
     public function index()
-    {        
-        $users = $this->repository->orderby('id', 'desc')->paginate();
+    {   
+        $empresa = Auth::user()->tenant_id;
+        // dd($empresa);
+        // $users = $this->repository->orderby('id', 'desc')->paginate();
+        $users = $this->repository->orderby('name', 'asc')->where('tenant_id', '=', $empresa)->paginate();
         $tenants = Tenant::all();
-        
-        return view('admin.users.index', compact('users', 'tenants'));
+                
+        return view('admin.users.tenant.index', compact('users', 'tenants'));
     }
 
     public function create()
     {
         $tenants = Tenant::all();
 
-        return view('admin.users.create', compact('tenants'));
+        return view('admin.users.tenant.create', compact('tenants'));
     }
 
     public function store(StoreUpdateUser $request)
@@ -47,15 +50,15 @@ class UserController extends Controller
         ]);
 
         $user = new User;
-
-        $user->tenant_id = $data['tenant_id'];
+        
+        $user->tenant_id = Auth::user()->tenant_id;
         $user->name = $data['name'];
         $user->email = $data['email'];
         $user->password = Hash::make($data['password']);
         
         $user->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users-tenant.index');
     }
 
     public function show($id)
@@ -66,28 +69,21 @@ class UserController extends Controller
             return redirect()->back();
         }
 
-        return view('admin.users.show', compact('user', 'tenants'));
+        return view('admin.users.tenant.show', compact('user', 'tenants'));
     }
 
     public function edit($id)
     {
-        $tenants = Tenant::all();
 
         if (!$user = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.users.edit', compact('user', 'tenants'));
+        return view('admin.users.tenant.edit', compact('user'));
     }
     
     public function update(StoreUpdateUser $request, $id)
-    {
-        // if (!$user = $this->repository->find($id)) {
-        //     return redirect()->back();
-        // }
-
-        // $user->update($request->all());
-
+    {        
         $user = User::find($id);
 
         if($user) {
@@ -95,10 +91,10 @@ class UserController extends Controller
                 'name',
                 'email',
                 'password',
-                'tenant_id'
+                // 'tenant_id'
             ]);
             // 1. Alteração do tenant
-            $user->tenant_id = $data['tenant_id'];
+            // $user->tenant_id = $data['tenant_id'];
 
             // 1. Alteração do nome
             $user->name = $data['name'];
@@ -122,12 +118,13 @@ class UserController extends Controller
                     // 3.3 Altera a senha
                     $user->password = Hash::make($data['password']);                   
                 }
-            }            
+            }
+            
             $user->save();
 
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('users-tenant.index');
     }
 
     public function destroy($id)
@@ -138,7 +135,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users-tenant.index');
     }
-
 }

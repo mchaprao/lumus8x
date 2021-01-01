@@ -58,10 +58,10 @@
                                         </div>
                                         <div class="flex flex-col flex-grow ml-4">
                                             <div class="text-sm text-gray-500">
-                                                <a href="{{ route('products.index') }}">Módulo Efluentes</a>
+                                                <a href="{{ route('analyzes.index') }}">Módulo Efluentes</a>
                                             </div>
                                             <div class="font-bold text-lg">
-                                                <a href="{{ route('products.index') }}">ANÁLISES</a>
+                                                <a href="{{ route('analyzes.index') }}">ANÁLISES</a>
                                             </div>
                                         </div>
                                         </div>
@@ -99,10 +99,10 @@
                                     new Chart(document.getElementById("chartjs-7"), {
                                         "type": "bar",
                                         "data": {
-                                            "labels": ["Temperatura", "pH", "DBO5", "DQO"],
+                                            "labels": {!! $labels !!},
                                             "datasets": [{
                                                 "label": "Efluente Bruto",
-                                                "data": [31.2, 8, 90, 639],
+                                                "data": {{ $values }},
                                                 "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
                                                 "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
                                                 "borderWidth": 1
