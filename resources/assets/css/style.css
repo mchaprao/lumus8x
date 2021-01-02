@@ -123,7 +123,7 @@
     color: #FFF;
     text-transform: uppercase;
     /* background: #97c54b; */
-    background: #9ccd64;;
+    background: #9ccd64;    
     padding: 10px;
     border-radius: 8px;
     -webkit-border-radius: 8px;
@@ -831,9 +831,10 @@
 /*FOOTER
 =====================================*/
 .footer{
-    background: #2c3e50;
-    padding: 20px 0;
-    margin-top: 30px;
+    /* background: #505559; */
+    background: #80aa51;
+    /* padding: 20px 0; */
+    /* margin-top: 30px; */
     color: #fff;
 }
 .footer .content{
@@ -857,6 +858,10 @@
     font-size: 2rem;
     margin: 0 10px;
     line-height: 1;
+}
+
+.footer-redes a:hover{
+    color: #000;
 }
 
 /*BREAKPOINTS
@@ -1088,7 +1093,7 @@
     }
     .footer-redes,
     .footer-copyright{
-        margin-top: 25px;
+        margin-top: 55px;
     }
     .footer-redes a{
         margin: 0;

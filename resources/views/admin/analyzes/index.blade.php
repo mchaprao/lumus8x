@@ -45,8 +45,13 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($analyzes as $analyze)
+
+                                    <?php 
+                                        // $data = implode('/', array_reverse(explode('-', $analyze->date_analyzes)));
+                                    ?>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{-- {{ $data }} --}}
                                             {{ $analyze->date_analyzes }}
                                         </td>
 
@@ -60,8 +65,7 @@
                                                 {{ $analyze->laboratory['name'] }}                                            
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{-- {{ $analyze->status }} --}}
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">                                            
                                             @if($analyze->status == 'A')
                                                 <span class="badge badge-success">Aguardando coleta</span>
                                             @elseif($analyze->status == 'R')
@@ -76,13 +80,22 @@
                                         </td> --}}
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            @if($analyze->arquivo == '')
+                                                Vazio
+                                            @endif
+                                                {{-- <a href="{{ route('analyzes.show', $analyze->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Arquivo</a> --}}
+                                            
                                             <a href="{{ route('analyzes.show', $analyze->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver</a>
-                                            <a href="{{ route('analyzes.edit', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
-                                            <form class="inline-block" action="{{ route('analyzes.destroy', $analyze->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir esse registro?');">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
-                                            </form>
+                                            @can('Analise - Editar')
+                                                <a href="{{ route('analyzes.edit', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
+                                            @endcan
+                                            @can('Analise - Excluir')
+                                                <form class="inline-block" action="{{ route('analyzes.destroy', $analyze->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir esse registro?');">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
+                                                </form>
+                                            @endcan
                                             {{-- <a href="{{ route('analyzes.roles', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Cargos</a> --}}
                                         </td>
                                     </tr>

@@ -436,7 +436,7 @@
                                     </div>
                                     @endcan
 
-                                    {{-- @can('Análises') --}}
+                                    @can('Análises')
                                     {{-- TENANTS --}}
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
@@ -453,7 +453,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {{-- @endcan --}}
+                                    @endcan
 
                                 </div>
                             </div>

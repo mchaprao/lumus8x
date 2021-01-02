@@ -19,28 +19,13 @@ class AnalyzeController extends Controller
     {
         $this->repository = $analyze;
 
-        // $this->middleware(['can:Análises']);
+        $this->middleware(['can:Efluentes - Analises']);
     }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index(){
-
-    //     $analyzes = $this->repository->latest()->paginate();
-
-    //     return view('admin.analyzes.index', compact('analyzes'));
-    // }
+    
     public function index()
     {
         $empresa = Auth::user()->tenant_id;
-        // dd($empresa);
-        // $analyzes = $this->repository->orderby('date_analyzes', 'desc')->where('tenant_id', '=', $empresa)->paginate();        
         
-        // $analyzes = $this->repository->latest()->paginate();
-
         if(Auth::user()->tenant_id == 1){
             $analyzes = $this->repository->latest()->paginate();
         }else {
@@ -53,11 +38,6 @@ class AnalyzeController extends Controller
         return view('admin.analyzes.index', compact('analyzes', 'tenants', 'laboratories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $tenants = Tenant::all();
@@ -66,12 +46,6 @@ class AnalyzeController extends Controller
         return view('admin.analyzes.create', compact('tenants', 'laboratories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreUpdateProduct  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreUpdateAnalyze $request)
     {
         // $data = $request->all();
@@ -104,6 +78,7 @@ class AnalyzeController extends Controller
         $analyze->tenant_id = $data['tenant_id'];
         $analyze->laboratory_id = $data['laboratory_id'];
         $analyze->date_analyzes = $data['date_analyzes'];
+        $analyze->arquivo = $data['arquivo'];
         
         $analyze->save();
 

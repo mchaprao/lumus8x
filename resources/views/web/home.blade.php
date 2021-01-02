@@ -390,14 +390,21 @@
                 
             </nav>
 
-            <div class="header-search">
+            <div>
+                {{-- <button class="relative float-right m-6 text-sm uppercase"> --}}
+                <button class="relative float-right m-4 px-6 py-2 text-sm font-medium leading-6 text-center text-green-500 uppercase transition bg-green-100 border-2 border-green-500 rounded-full ripple hover:bg-green-100 focus:outline-none waves-effect">
+                    <a href="{{ route('login') }}">Acesso Cliente</a>
+                </button>
+            </div>
+
+            {{-- <div class="header-search">
                 <form action="">
                     <input type="search" name="busca" placeholder="PESQUISAR">
                     <button type="submit">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
-            </div>
+                </form>                
+            </div> --}}
 
             <div class="header-redes">
                 <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -435,7 +442,7 @@
             </div>
         </header>
 
-        <div class="row agencia">
+        {{-- <div class="row agencia">
             <div class="content">
                 <div class="agencia-title">
                     <p>{{ $webempresa->title }}</p>
@@ -464,7 +471,7 @@
                     <p>{{ $webempresa->perfection }}</p>
                 </section>
             </div>
-        </div>
+        </div> --}}
     @endforeach
 </section>
 {{-- End Agencia --}}
@@ -506,7 +513,6 @@
             </p>
         </div>
     </header>
-
     <div class="row equipe">
         <div class="content">
             <ul class="equipe-list">
@@ -573,7 +579,7 @@
 {{-- End Equipe --}}
 
 {{-- Serviços --}}
-<section class="section" id="servicos">
+<section class="section bg-gray-50" id="servicos">
     <header class="section-header">
         <div class="content">
             <h1><span>Serviços</span></h1>
@@ -669,7 +675,6 @@
             </p>
         </div>
     </header>
-
     <div class="row testemunhas">
         <div class="content">
             <div class="owl-carousel" id="carousel_testemunhas">
@@ -732,7 +737,7 @@
 {{-- End testemunhas --}}
 
 {{-- portfolio --}}
-<section class="section" id="portfolio">
+{{-- <section class="section" id="portfolio">
     <header class="section-header">
         <div class="content">
             <h1><span>Portfolio</span></h1>
@@ -750,7 +755,7 @@
             <li><a href="#" id="design">Design</a></li>
             <li><a href="#" id="logos">Logos</a></li>
         </ul>
-    </div>
+    </div> --}}
 
     {{-- <div class="py-10">
         <ul class="text-center uppercase ">
@@ -758,7 +763,7 @@
         </ul>
     </div> --}}
 
-    <div class="row">
+    {{-- <div class="row">
 
         @foreach($posts as $post)
 
@@ -773,7 +778,7 @@
                 <img src="{{ url('storage').'/'.$post->image }}" alt="">
             </div>
 
-        @endforeach
+        @endforeach --}}
 
         {{-- <div class="portfolio visible websites design">
             <div class="portfolio-hover">
@@ -875,8 +880,8 @@
             </div>
             <img src="{{ asset('frontend/assets/images/portfolio/10.jpg')}}" alt="">
         </div> --}}
-    </div>
-</section>
+    {{-- </div>
+</section> --}}
 {{-- End portfolio --}}
 
 {{-- clientes --}}
@@ -905,7 +910,6 @@
             </p>
         </div>
     </header>
-
     <div class="row blog">
         <div class="content">
             <article class="blog-item">
@@ -920,7 +924,6 @@
                     <p class="blog-link"><a href="#">Ler mais</a></p>
                 </div>
             </article>
-
             <article class="blog-item">
                 <div class="blog-item-thumb">
                     <span>01 agosto de 2020</span>
@@ -933,7 +936,6 @@
                     <p class="blog-link"><a href="#">Ler mais</a></p>
                 </div>
             </article>
-
             <article class="blog-item">
                 <div class="blog-item-thumb">
                     <span>01 agosto de 2020</span>
@@ -946,7 +948,6 @@
                     <p class="blog-link"><a href="#">Ler mais</a></p>
                 </div>
             </article>
-
             <article class="blog-item">
                 <div class="blog-item-thumb">
                     <span>01 agosto de 2020</span>
@@ -965,7 +966,7 @@
 {{-- End blog --}}
 
 {{-- contato --}}
-<section class="section bg-gray-100" id="contato">
+<section class="section" id="contato">
     <header class="section-header">
         <div class="content">
             <h1><span>Contato</span></h1>
@@ -975,7 +976,7 @@
         </div>
     </header>
 
-    <div class="row py-8 text-center font-extrabold text-3xl">
+    <div class="row py-8 text-center text-2xl">
         <div class="content">
             <p><span>lumus@lumusambiental.com.br</span></p>
             <p><span>   81 9 9900 1276</span> </p>
@@ -1016,30 +1017,7 @@
 </section>
 {{-- End contato --}}
 
-
-<div class="bg-gray-100">
-	
-		<div class="container w-full max-w-6xl mx-auto px-2 py-8">
-			<div class="flex flex-wrap -mx-2">
-                @foreach($posts as $post)
-                <div class="w-full md:w-1/3 px-2 pb-12">
-					<div class="h-full bg-gray-200 rounded overflow-hidden shadow-md hover:shadow-lg relative smooth">
-						<a href="#" class="bg-red-900 no-underline hover:no-underline">
-								<img src="{{ url('storage').'/'.$post->image }}" class="h-48 w-full rounded-t shadow-lg">
-								<div class="p-4 h-auto md:h-12">	
-									<p class="text-green-600 text-xs md:text-sm text-extrabold uppercase">{{ $post->title }}</p>
-								</div>
-						</a>
-					</div>
-				</div>
-                @endforeach
-
-            </div>
-        </div>
-
-</div>
-
-<footer>
+{{-- <footer>
     <div class="container mx-auto bg-gray-600">
         <div class="flex space-x-4 text-center text-white">
             <div class="flex-1 self-center text-3xl">
@@ -1057,30 +1035,28 @@
             </div>
         </div>
     </div>
-</footer>
+</footer> --}}
 
 
 {{-- footer --}}
-<!-- <footer class="row footer">
+<footer class="row footer">
     <div class="content">
         <div class="footer-col footer-redes">
-            <a href=""><i class="fab fa-facebook-f"></i></a>
-            <a href=""><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/lumusambiental"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/lumusambiental/"><i class="fab fa-instagram"></i></a>
             <a href=""><i class="fab fa-linkedin-in"></i></a>
             {{-- <a href=""><i class="fab fa-pinterest-p"></i></a> --}}
         </div>
-
         <div class="footer-col footer-logo">
             <a href="" class="back-top">
                 <img src="{{ asset('frontend/assets/images/logo-lumus-720-250-fr-br.png') }}">
             </a>
         </div>
-
         <div class="footer-col footer-copyright">
-            <p>Todos os direitos reservados.</p>
+            <p>© 2020 | Todos os direitos reservados.</p>
         </div>
     </div>
-</footer> -->
+</footer>
 {{-- End footer --}}
 
 <script src="{{ asset('frontend/assets/js/jquery.js') }}"></script>

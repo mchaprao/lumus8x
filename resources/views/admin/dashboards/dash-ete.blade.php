@@ -36,6 +36,8 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    @can('Efluentes - Relatorios')
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
                                         <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
@@ -50,7 +52,10 @@
                                             </div>
                                         </div>
                                         </div>
-                                    </div>                                    
+                                    </div>  
+                                    @endcan                                  
+
+                                    @can('Efluentes - Analises')
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
                                         <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
@@ -66,6 +71,9 @@
                                         </div>
                                         </div>
                                     </div>
+                                    @endcan                                  
+
+                                    @can('Efluentes - Equipamentos')
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
                                             <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500">
@@ -83,6 +91,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endcan                                  
                         {{-- </div> --}}
                     </div><!-- FIM ROW --> 
                     
