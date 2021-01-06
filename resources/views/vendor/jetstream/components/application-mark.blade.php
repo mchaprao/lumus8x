@@ -1,1 +1,1 @@
-<img src="{{ URL::asset('images/lumus8xsf.png') }}">
+<img src="{{ URL::asset('frontend/assets/images/logo-lumus8x.jpeg') }}">
