@@ -26,6 +26,30 @@ class HomeController extends Controller
         return view('dashboard');
     }
 
+    public function contact()
+    {
+        return view('web.contact');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        // $data = [
+        //     'reply_name' => $request->name,
+        //     'reply_email' => $request->email,
+        //     'cell' => $request->cell,
+        //     'message' => $request->message
+        // ];
+
+        // Mail::send(new Contact($data));
+
+        // return redirect()->route('sendEmailSuccess');
+    }
+
+    public function sendEmailSuccess()
+    {
+        return view('web.contact_success');
+    }
+
     public function dashEte()
     { 
         $grafico = [

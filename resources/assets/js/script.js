@@ -1,78 +1,78 @@
 $(document).ready(function(){
-    // dialog
-    $('.dialog-close').click(function(){
-        $('.dialog-body').fadeOut('200', function(){
-            $('.dialog').fadeOut('200');
-        });
-    });
+    // // dialog
+    // $('.dialog-close').click(function(){
+    //     $('.dialog-body').fadeOut('200', function(){
+    //         $('.dialog').fadeOut('200');
+    //     });
+    // });
 
-    $('.dialog-open').click(function(e){
-        e.preventDefault();
-        var target = $(this).attr('href');
-        $('.dialog').fadeIn('200', function(){
-            $(target).fadeIn('200');
-        });
-    });
+    // $('.dialog-open').click(function(e){
+    //     e.preventDefault();
+    //     var target = $(this).attr('href');
+    //     $('.dialog').fadeIn('200', function(){
+    //         $(target).fadeIn('200');
+    //     });
+    // });
     
-    $('#nav-toggle').click(function(e){
-        e.preventDefault();
-        $(this).toggleClass('active');
-        $('.header-collapse').toggleClass('active');
-    });
+    // $('#nav-toggle').click(function(e){
+    //     e.preventDefault();
+    //     $(this).toggleClass('active');
+    //     $('.header-collapse').toggleClass('active');
+    // });
 
-    // Variaveis
-    var nav = $('.header-nav'),
-        navHeight = nav.outerHeight(),
-        sections = $('.section');
+    // // Variaveis
+    // var nav = $('.header-nav'),
+    //     navHeight = nav.outerHeight(),
+    //     sections = $('.section');
     
-    // Scroll
-    $(window).on('scroll', function(){
-        var sTop = $(this).scrollTop();
+    // // Scroll
+    // $(window).on('scroll', function(){
+    //     var sTop = $(this).scrollTop();
 
-        // fixando header
-        if(sTop > navHeight){
-            $('.header').addClass('fixed');
-        }else{
-            $('.header').removeClass('fixed');
-        }
-        // marcando menu scroll
-        if(sTop == 0){
-            nav.find('a').removeClass('active');
-            nav.find('a[href="#home"]').addClass('active');
-        } else{
-            sections.each(function(){
-                var top = $(this).offset().top - navHeight;
+    //     // fixando header
+    //     if(sTop > navHeight){
+    //         $('.header').addClass('fixed');
+    //     }else{
+    //         $('.header').removeClass('fixed');
+    //     }
+    //     // marcando menu scroll
+    //     if(sTop == 0){
+    //         nav.find('a').removeClass('active');
+    //         nav.find('a[href="#home"]').addClass('active');
+    //     } else{
+    //         sections.each(function(){
+    //             var top = $(this).offset().top - navHeight;
 
-                if(sTop >= top){
-                    nav.find('a').removeClass('active');
-                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
-                }
-            });
-        }
+    //             if(sTop >= top){
+    //                 nav.find('a').removeClass('active');
+    //                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+    //             }
+    //         });
+    //     }
         
-    });
+    // });
 
-    // Navegação
-    nav.find('a').on('click', function(e){
-        e.preventDefault();
-        $('.header-collapse').removeClass('active');
-        $('#nav-toggle').removeClass('active');
+    // // Navegação
+    // nav.find('a').on('click', function(e){
+    //     e.preventDefault();
+    //     $('.header-collapse').removeClass('active');
+    //     $('#nav-toggle').removeClass('active');
 
-        var target = $(this).attr('href');
-        if(target == "#home"){
-            $('html, body').animate({scrollTop: 0}, 700);
-        }else{
-            $('html, body').stop().animate({
-                scrollTop: $(target).offset().top
-            }, 700);
-        }
-    });
+    //     var target = $(this).attr('href');
+    //     if(target == "#home"){
+    //         $('html, body').animate({scrollTop: 0}, 700);
+    //     }else{
+    //         $('html, body').stop().animate({
+    //             scrollTop: $(target).offset().top
+    //         }, 700);
+    //     }
+    // });
 
-    // back-top
-    $('back-top').on('click', function(e){
-        e.preventDefault();
-        $('html, body').animate({scrollTop: 0}, 700);
-    });
+    // // back-top
+    // $('back-top').on('click', function(e){
+    //     e.preventDefault();
+    //     $('html, body').animate({scrollTop: 0}, 700);
+    // });
 
     // Carousel Principal
     $('#carousel_principal').owlCarousel({

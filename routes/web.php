@@ -30,7 +30,11 @@ use App\Http\Controllers\Admin\ACL\{
 };
 use Illuminate\Support\Facades\Route;
 
+// WEB
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/contato', [HomeController::class, 'contact'])->name('contact');
+Route::post('/contato/sendEmail', [HomeController::class, 'sendEmail'])->name('sendEmail');
+Route::get('/contato/sucesso', [HomeController::class, 'sendEmailSuccess'])->name('sendEmailSuccess');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 

@@ -1,0 +1,32 @@
+.main_header {
+
+    .header_bar {
+
+        i {
+            font-size: 1.6em;
+        }
+
+        p {
+            font-size: 0.875em;
+        }
+    }
+}
+
+.text_menu {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn_lumus {
+    border: 1px solid #9ccd64;
+    color: #9ccd64;
+    font-size: 0.9em;
+    font-weight: bold;
+    
+}
+
+.btn_lumus:hover {
+    background-color: #9ccd64;
+    color: #FFF;
+}

@@ -91,12 +91,18 @@
     color: #FFF;
     background: #97c54b;
 }
+/* acesso */
+.header-acesso{
+    position: relative;
+    float: right;
+    margin: 18px 0;
+}
 
 /* search */
 .header-search{
     position: relative;
     float: right;
-    margin: 18px 0;
+    margin: 18px 10;
 }
 .header-search input::-webkit-input-placeholder{/* Crome/Opera/Safari*/
     color: #FFF;
@@ -139,6 +145,17 @@
     -webkit-transform: translateY(-50%);
 }
 
+.header-acesso button{
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    color: #FFF;
+    font-size: 1.5rem;
+    background: transparent;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
 /* redes sociais header*/
 .header-redes{
     text-align: center;
@@ -154,6 +171,68 @@
     /* color: #97c54b; */
     color: #9ccd64;
 }
+
+.btn-outline-success {
+    text-transform: uppercase;
+    font-size: .875rem;
+    
+}
+
+.btn-primary:hover {
+    background-color: #fff;
+    border-color: 2px solid #97c54b;
+}
+
+/* Services */
+.services-container {
+    display: flex;
+    padding: 50px;
+}
+
+.services-container h5 {
+    color: #9ccd64;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#cards-container {
+    background-color: red;
+}
+
+.services-container .card {
+    flex: 1 1 0;
+    max-width: 25%;
+    padding: 0;
+    margin: 5px;
+}
+/*SERVIÇOS 2*/
+.container {
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+
+    background-color: darkcyan;
+    height: 400px;
+    color: white;
+}
+
+.r1 {background-color: red;}
+.r2 {background-color: blue;}
+.r3 {background-color: green;}
+.r4 {background-color: yellow;}
+
+.rect {
+    width: 25%;
+    height: 300px;
+}
+
+.rect img {
+    max-width: 250px;
+    max-height: 150px;
+}
+
+
 
 /*AGENCIA
 ======================================*/
@@ -934,6 +1013,12 @@
     .header-search input{
         padding: 15px;
     }
+
+    .header-acesso{
+        max-width: 300px;
+        margin: 0 auto;
+        float: none;
+    }
 }
 
 /* MIN-WIDTH */
@@ -1023,18 +1108,23 @@
         width: 56%;
     }
 
-    /* caroisel */
-    #carousel_principal .owl-caption{
-        padding: 30px;
-        font-size: 1.6rem;
+    .text-3 {
+        font-size: 3.5rem;
         font-weight: 600;
     }
 
-    #carousel_principal .owl-caption strong{
-        font-size: 2.5rem;
+    /* carousel */
+    /* #carousel_principal .owl-caption{
+        padding: 30px;
+        font-size: 3.5rem;
+        font-weight: 600;
+    } */
+
+    /* #carousel_principal .owl-caption strong{
+        font-size: 3.5rem;
         text-transform: uppercase;
         font-weight: bold;
-    }
+    } */
 
     /* agencia */
     .agencia-item{
@@ -1222,6 +1312,11 @@
         width: 260px;
     }
 
+    .header-acesso{
+        width: 140px;
+    }
+
+ 
     /* serviços */
     .servicos-item:nth-of-type(2n+0),
     .servicos-item:nth-of-type(1n+3),

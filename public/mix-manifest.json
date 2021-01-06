@@ -1,6 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/bootstrap_custom.css": "/css/bootstrap_custom.css",
+    "/css/appbootstrap.css": "/css/appbootstrap.css",
     "/frontend/assets/css/owl.carousel.min.css": "/frontend/assets/css/owl.carousel.min.css",
     "/frontend/assets/css/style.carousel.css": "/frontend/assets/css/style.carousel.css",
     "/frontend/assets/css/bootstrap.min.css": "/frontend/assets/css/bootstrap.min.css",

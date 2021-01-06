@@ -69,7 +69,8 @@
 
 /* carousel_principal */
 #carousel_principal{
-    height: calc(100%-80px);
+    /* height: calc(100%-80px); */
+    height: 100%;
 }
 
 #carousel_principal .owl-caption{
@@ -83,13 +84,18 @@
     -webkit-border-radius: 10px;
     color: #FFF;
     padding: 10px;
+    padding-bottom: 10px;
     text-align: center;    
 }
 
-#carousel_principal .owl-caption strong{
-    font-size: 1.5rem;
+#carousel_principal .owl-title{
+    font-size: 2.5rem;
     text-transform: uppercase;
     font-weight: bold;
+}
+
+#carousel_principal .owl-subtitle{
+    font-size: 2.5rem;
 }
 
 

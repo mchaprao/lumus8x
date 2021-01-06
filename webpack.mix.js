@@ -18,6 +18,10 @@ mix.js('resources/assets/js/app.js', 'public/js')
     ])
     .webpackConfig(require('./webpack.config'))
 
+    .styles(['resources/assets/css/bootstrap_custom.css'
+    ], 'public/css/bootstrap_custom.css')
+    .styles(['resources/assets/css/appbootstrap.css'
+    ], 'public/css/appbootstrap.css')
     .styles(['resources/assets/css/owl.carousel.min.css'
     ], 'public/frontend/assets/css/owl.carousel.min.css')
     .styles(['resources/assets/css/style.carousel.css'
@@ -55,4 +59,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
     ], 'public/frontend/assets/js/Chart.js')
     
     .copyDirectory('resources/assets/images', 'public/frontend/assets/images')
+    .copyDirectory('resources/assets/css/fonts', 'public/css/fonts')
     ;
