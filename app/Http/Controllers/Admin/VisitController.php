@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tenant;
+use App\Models\User;
 use App\Models\Visit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VisitController extends Controller
 {
@@ -24,7 +27,17 @@ class VisitController extends Controller
      */
     public function index()
     {
-        return view('admin.visits.index');
+        $empresa = Auth::user()->tenant_id;
+        
+        if(Auth::user()->tenant_id == 1){
+            $visits = $this->repository->latest()->paginate();
+        }else {
+            $visits = $this->repository->orderby('visit_at', 'desc')->where('tenant_id', '=', $empresa)->paginate();
+        }
+
+        $tenants = Tenant::all();        
+        $users = User::all();
+        return view('admin.visits.index', compact('visits', 'users', 'tenants'));
     }
 
     /**

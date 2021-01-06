@@ -16,12 +16,20 @@ class CreateVisitsTable extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tenant_id');
+            $table->uuid('uuid');
             $table->dateTime('visit_at');
+            $table->unsignedBigInteger('user_id');
+            $table->enum('status', ['A', 'P', 'C'])->default('P');
+            $table->string('arquivo');
             $table->timestamps();
 
             $table->foreign('tenant_id')
                         ->references('id')
                         ->on('tenants')
+                        ->onDelete('cascade');
+            $table->foreign('user_id')
+                        ->references('id')
+                        ->on('users')
                         ->onDelete('cascade');
         });
     }

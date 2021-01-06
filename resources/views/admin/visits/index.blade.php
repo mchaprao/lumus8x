@@ -9,7 +9,7 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             @can("Visita - Adicionar")
             <div class="block mb-8">
-                <a href="{{ route('plans.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Nova Visita</a>
+                <a href="{{ route('visits.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Nova Visita</a>
             </div>
             @endcan
             <div class="flex flex-col">
@@ -41,34 +41,34 @@
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
-                                {{-- @foreach ($plans as $plan) --}}
+                                @foreach ($visits as $visit)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{-- {{ $plan->id }} --}}
-                                            25/12/2020
+                                            {{ $visit->visit_at }}
                                         </td>
 
-                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900"> --}}
-                                            {{-- {{ $plan->name }} --}}
-                                            {{-- Magdala Barbosa --}}
-                                        {{-- </td> --}}
-
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{-- {{ $plan->name }} --}}
-                                            Marcos Chaprão
+                                            {{ $visit->user['name'] }}
                                         </td>
 
-                                        {{-- <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">                                            
-                                            Ver Arquivo
-                                        </td> --}}
-
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{-- R$ {{ number_format($plan->price, 2, ',', '.') }} --}}
-                                            Pendente
+                                            @if($visit->status == 'P')
+                                                Pendente
+                                            @elseif($visit->status == 'A')
+                                                Andamento
+                                            @elseif($visit->status == 'C')
+                                                Concluída
+                                            @endif
                                         </td>
                                         
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver arquivo</a>
+
+                                            @if($visit->arquivo == '')
+                                                Aguardando arquivo
+                                            @elseif($visit->arquivo !== '')
+                                                <a href="" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver arquivo</a>
+                                            @endif
+                                            
                                             @can("Visita - Editar")
                                             <a href="" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             @endcan
@@ -82,12 +82,12 @@
                                             {{-- <a href="" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Perfil</a> --}}
                                         </td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>                        
                         <div class="p-2 bg-gray-200">
-                            {{-- {{ $plans->links() }} --}}
+                            {{ $visits->links() }}
                         </div>
                     </div>
                 </div>

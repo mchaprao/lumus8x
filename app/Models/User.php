@@ -83,4 +83,10 @@ class User extends Authenticatable
 
         return $roles;
     }
+
+    public function visits()
+    {
+        return $this->belongsToMany(Visit::class);
+        
+    }
 }
