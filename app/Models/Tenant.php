@@ -23,4 +23,9 @@ class Tenant extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+
+    public function visits()
+    {
+        return $this->hasMany(Visit::class);
+    }
 }

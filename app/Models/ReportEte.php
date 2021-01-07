@@ -2,32 +2,33 @@
 
 namespace App\Models;
 
-use App\Tenant\Traits\TenantTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Visit extends Model
+class ReportEte extends Model
 {
     use HasFactory;
-    // use TenantTrait;
 
     protected $fillable = [
         'tenant_id',
-        'visit_at',
+        'date_at',
         'user_id',
-        'status',
+        'report_type_id',
         'arquivo'
     ];
-
+    
     public function user()
     {
         return $this->belongsTo(User::class);
-
     }
 
     public function tenant()
     {
         return $this->belongsTo(Tenant::class);
+    }
 
+    public function reportType()
+    {
+        return $this->belongsTo(ReportType::class);
     }
 }

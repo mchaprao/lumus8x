@@ -9,7 +9,10 @@ use App\Models\{
     Plan,
     Post,
     Product,
-    Tenant
+    ReportEte,
+    ReportType,
+    Tenant,
+    Visit
 };
 use App\Observers\{
     AnalyzeObserver,
@@ -18,7 +21,10 @@ use App\Observers\{
     PlanObserver,
     PostObserver,
     ProductObserver,
-    TenantObserver
+    ReportEteObserver,
+    ReportTypeObserver,
+    TenantObserver,
+    VisitObserver
 };
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -51,6 +57,8 @@ class AppServiceProvider extends ServiceProvider
         Carousel::observe(CarouselObserver::class);
         Post::observe(PostObserver::class);
         Analyze::observe(AnalyzeObserver::class);
+        Visit::observe(VisitObserver::class);
+        ReportEte::observe(ReportEteObserver::class);
         
         /**
          * Custom If Statements

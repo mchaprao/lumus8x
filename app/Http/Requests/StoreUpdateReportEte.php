@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Tenant\Rules\UniqueTenant;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateVisit extends FormRequest
+class StoreUpdateReportEte extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

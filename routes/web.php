@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\{
     LaboratoryController,
     LocalAnalyzeController,
     ParameterAnalyzeController,
+    ReportEteController,
+    ReportTypeController,
     UserTenantController,
     WebEmpresaController
 };
@@ -75,8 +77,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     // PRODUCTS
     Route::resource('products', ProductController::class);
 
-    // Visits
+    // EFLUENTES
     Route::resource('visits', VisitController::class);
+    Route::resource('r_etes', ReportEteController::class);
+    Route::resource('r_types', ReportTypeController::class);
 
     // TENANTS
     Route::resource('tenants', TenantController::class);

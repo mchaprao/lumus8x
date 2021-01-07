@@ -51,10 +51,10 @@
                                         </div>
                                         <div class="flex flex-col flex-grow ml-4">
                                             <div class="text-sm text-gray-500">
-                                                <a href="{{ route('products.index') }}">Módulo Efluentes</a>
+                                                <a href="{{ route('r_etes.index') }}">Módulo Efluentes</a>
                                             </div>
                                             <div class="font-bold text-lg">
-                                                <a href="{{ route('products.index') }}">RELATÓRIOS</a>
+                                                <a href="{{ route('r_etes.index') }}">RELATÓRIOS</a>
                                             </div>
                                         </div>
                                         </div>

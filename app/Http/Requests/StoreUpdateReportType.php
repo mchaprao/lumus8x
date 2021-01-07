@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests;
 
-use App\Tenant\Rules\UniqueTenant;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdateVisit extends FormRequest
+class StoreUpdateReportType extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +24,14 @@ class StoreUpdateVisit extends FormRequest
     public function rules()
     {
         $id = $this->segment(2);
-
-        $rules = [
-             'arquivo' => ['nullable'],
-        ];
         
-        if ($this->method() == 'PUT') {
-            $rules['arquivo'] = ['nullable'];
-        }
-
-        return $rules;
+        return [
+            'name' => [
+                'required',
+                'min:3',
+                'max:255',
+                "unique:report_types,name,{$id},id",
+            ],
+        ];
     }
 }

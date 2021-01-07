@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateVisit;
+use App\Http\Requests\StoreUpdateReportEte;
+use App\Models\ReportEte;
+use App\Models\ReportType;
 use App\Models\Tenant;
 use App\Models\User;
-use App\Models\Visit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class VisitController extends Controller
+class ReportEteController extends Controller
 {
+   private $repository;
 
-    private $repository;
-
-    public function __construct(Visit $visit)
+    public function __construct(ReportEte $r_ete)
     {
-        $this->repository = $visit;
+        $this->repository = $r_ete;
 
         $this->middleware(['can:Efluentes']);
     }
@@ -27,48 +27,38 @@ class VisitController extends Controller
         $empresa = Auth::user()->tenant_id;
         
         if(Auth::user()->tenant_id == 1){
-            $visits = $this->repository->latest()->paginate();
+            $r_etes = $this->repository->latest()->paginate();
         }else {
-            $visits = $this->repository->orderby('visit_at', 'desc')->where('tenant_id', '=', $empresa)->paginate();
+            $r_etes = $this->repository->orderby('date_at', 'desc')->where('tenant_id', '=', $empresa)->paginate();
         }
 
         $tenants = Tenant::all();        
         $users = User::all();
-        return view('admin.visits.index', compact('visits', 'users', 'tenants'));
+        $r_types = ReportType::all();
+        return view('admin.reportEtes.index', compact('r_etes', 'users', 'tenants', 'r_types'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         $tenants = Tenant::all();
         $users = User::all();
-        return view('admin.visits.create', compact('users', 'tenants'));
+        $r_types = ReportType::all();
+        return view('admin.reportEtes.create', compact('users', 'tenants', 'r_types'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreUpdateVisit $request)
-    {
-        // $this->repository->create($request->all());
-
+    public function store(StoreUpdateReportEte $request)
+    {  
         $data = $request->only([
-            'visit_at',
+            'date_at',
             'tenant_id',            
             'user_id',
+            'report_type_id',
             'arquivo'           
-        ]);
+        ]);        
 
         //SCRIPT PARA SUBIR ARQUIVO NA PASTA
         $nome_img = preg_replace('/[ -]+/', '-', @$_FILES['imagem']['name']);        
-        $caminho = 'backend/assets/images/visits/'. $nome_img;
+        $caminho = 'backend/assets/images/reportEte/'. $nome_img;
         if (@$_FILES['imagem']['name'] == "") {
             $imagem = "";
         } else {
@@ -80,13 +70,14 @@ class VisitController extends Controller
 
         $ext = pathinfo($imagem, PATHINFO_EXTENSION);
 
-        $visit = new Visit;
-        $visit->visit_at = $data['visit_at'];
-        $visit->tenant_id = $data['tenant_id'];
-        $visit->user_id = $data['user_id'];        
-        $visit->arquivo = $imagem;
+        $r_ete = new ReportEte;
+        $r_ete->date_at = $data['date_at'];
+        $r_ete->tenant_id = $data['tenant_id'];
+        $r_ete->user_id = Auth::user()->id;    
+        $r_ete->report_type_id = $data['report_type_id'];     
+        $r_ete->arquivo = $imagem;
         
-        $visit->save();
+        $r_ete->save();
 
         if ($ext == 'png' or $ext == 'jpg' or $ext == 'jpeg' or $ext == 'gif' or $ext == 'pdf' or $ext == '') {
             move_uploaded_file($imagem_temp, $caminho);
@@ -95,7 +86,7 @@ class VisitController extends Controller
             exit();
         }
 
-        return redirect()->route('visits.index');
+        return redirect()->route('r_etes.index');
     }
 
     /**
@@ -117,13 +108,14 @@ class VisitController extends Controller
      */
     public function edit($id)
     {
-       if (!$visit = $this->repository->find($id)) {
+        if (!$r_ete = $this->repository->find($id)) {
             return redirect()->back();
         }
 
         $tenants = Tenant::all();
         $users = User::all();
-        return view('admin.visits.edit', compact('visit', 'users', 'tenants'));
+        $r_types = ReportType::all();
+        return view('admin.reportEtes.edit', compact('r_ete', 'users', 'tenants', 'r_types'));
     }
 
     /**

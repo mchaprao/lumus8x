@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVisitsTable extends Migration
+class CreateReportEtesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateVisitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('visits', function (Blueprint $table) {
+        Schema::create('report_etes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tenant_id');
             $table->uuid('uuid');
-            $table->date('visit_at');
+            $table->date('date_at');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status', ['A', 'P', 'C'])->default('P');
+            $table->unsignedBigInteger('report_type_id');
             $table->string('arquivo');
             $table->timestamps();
 
@@ -31,6 +31,10 @@ class CreateVisitsTable extends Migration
                         ->references('id')
                         ->on('users')
                         ->onDelete('cascade');
+            $table->foreign('report_type_id')
+                        ->references('id')
+                        ->on('report_types')
+                        ->onDelete('cascade');
         });
     }
 
@@ -41,6 +45,6 @@ class CreateVisitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visits');
+        Schema::dropIfExists('report_etes');
     }
 }
