@@ -16,9 +16,24 @@ class HomeController extends Controller
         $plans = Plan::with('details')->orderBy('price', 'ASC')->get();
         $carousels = Carousel::all();
         $webempresas = WebEmpresa::all();
-        $posts = Post::all();
+        // $posts = Post::orderBy('title', 'ASC')->limit(3)->get();
+        $posts = Post::orderBy('title', 'ASC')->get();        
 
         return view('web.home', compact('plans', 'carousels', 'webempresas', 'posts'));
+    }
+
+    public function blog()
+    {
+        $posts = Post::orderBy('title', 'ASC')->limit(3)->get();
+
+        return view('web.blog', compact('posts'));
+    }
+
+    public function article()
+    {
+        $post = Post::where('slug', $slug)->first();
+
+        return view('web.article', compact('post'));
     }
 
     public function dashboard()

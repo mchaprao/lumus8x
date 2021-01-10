@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\{
     LaboratoryController,
     LocalAnalyzeController,
     ParameterAnalyzeController,
+    RelController,
     ReportEteController,
     ReportTypeController,
     UserTenantController,
@@ -34,6 +35,9 @@ use Illuminate\Support\Facades\Route;
 
 // WEB
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blog{slug}', [HomeController::class, 'article'])->name('article');
+
 Route::get('/contato', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contato/sendEmail', [HomeController::class, 'sendEmail'])->name('sendEmail');
 Route::get('/contato/sucesso', [HomeController::class, 'sendEmailSuccess'])->name('sendEmailSuccess');
@@ -139,6 +143,9 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::resource('analyzes', AnalyzeController::class);
     Route::resource('locations', LocalAnalyzeController::class);
     Route::resource('laboratories', LaboratoryController::class);
+
+    // CHARTJS
+    Route::get('relatories/visits', [RelController::class, 'visit'])->name('rel.visit'); 
 
 });
 

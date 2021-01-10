@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdatePost;
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -21,14 +22,16 @@ class PostController extends Controller
 
     public function index()
     {        
+        $categories = Category::all();
         $posts = $this->repository->orderby('id', 'desc')->paginate();
 
-        return view('admin.posts.index', compact('posts'));
+        return view('admin.posts.index', compact('posts', 'categories'));
     }
 
     public function create()
     {
-        return view('admin.posts.create');
+        $categories = Category::all();
+        return view('admin.posts.create', compact('categories'));
     }
 
     public function store(StoreUpdatePost $request)

@@ -26,6 +26,7 @@
             </header>
 
             <div class="row">
+                
                 @foreach($posts as $post)                
                 
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
@@ -38,7 +39,7 @@
                         <div class="card-body">
                             <h2><a href="" class="text-front">{{ $post->title }}</a>
                             </h2>
-                            <p class="main_properties_item_category"></p>
+                            {{-- <p class="main_properties_item_category"></p> --}}
                         </div>
                     </article>
                 </div>

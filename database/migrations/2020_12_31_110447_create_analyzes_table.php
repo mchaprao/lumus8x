@@ -18,7 +18,7 @@ class CreateAnalyzesTable extends Migration
             $table->unsignedBigInteger('tenant_id');
             $table->uuid('uuid');
             $table->string('slug');
-            $table->dateTime('date_analyzes'); 
+            $table->date('date_analyzes'); 
             $table->unsignedBigInteger('laboratory_id');
             $table->enum('status', ['A', 'R', 'C'])->default('A');
             $table->string('arquivo');

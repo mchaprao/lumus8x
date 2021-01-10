@@ -16,7 +16,7 @@
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                            <table class="min-w-full divide-y divide-gray-200 w-full">
+                            <table id="dataTable" class="min-w-full divide-y divide-gray-200 w-full">
                                 <thead>
                                 <tr>
                                     <th scope="col" width="100" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -26,11 +26,11 @@
                                         Solicitante
                                     </th> --}}
                                     <th scope="col" width="150" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Cliente
+                                    </th>
+                                    <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Técnico
                                     </th>
-                                    {{-- <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Arquivo
-                                    </th> --}}
                                     <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Status
                                     </th>
@@ -51,6 +51,10 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $visit->tenant['name'] }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $visit->user['name'] }}
                                         </td>
 
@@ -68,15 +72,16 @@
 
                                             @if($visit->arquivo == '')
                                                 Aguardando arquivo
-                                            @elseif($visit->arquivo !== '')
-                                                <a href="{{ asset('backend/assets/images/visits/'.$visit->arquivo) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver arquivo</a>
+                                            @else
+                                                <a href="{{ url("backend/assets/images/visits/{$visit->arquivo}") }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Baixar arquivo</a>
+                                                <a href="{{ route('rel.visit', $visit->id) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">DomPDF</a>
                                             @endif
                                             
-                                            @can("Visita - Editar")
+                                            {{-- @can("Visita - Editar")
                                             <a href="{{ route('visits.edit', $visit->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
-                                            @endcan
+                                            @endcan --}}
                                             @can("Visita - Excluir")
-                                            <form class="inline-block" action="" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
+                                            <form class="inline-block" action="{{ route('visits.destroy', $visit->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">

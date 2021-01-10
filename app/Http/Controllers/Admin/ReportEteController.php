@@ -89,23 +89,11 @@ class ReportEteController extends Controller
         return redirect()->route('r_etes.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         if (!$r_ete = $this->repository->find($id)) {
@@ -118,26 +106,57 @@ class ReportEteController extends Controller
         return view('admin.reportEtes.edit', compact('r_ete', 'users', 'tenants', 'r_types'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(StoreUpdateReportEte $request, $id)
     {
-        //
+        $data = $request->only([
+            'date_at',
+            'tenant_id',            
+            'user_id',
+            'report_type_id',
+            'arquivo'           
+        ]);        
+
+        //SCRIPT PARA SUBIR ARQUIVO NA PASTA
+        $nome_img = preg_replace('/[ -]+/', '-', @$_FILES['imagem']['name']);        
+        $caminho = 'backend/assets/images/reportEte/'. $nome_img;
+        if (@$_FILES['imagem']['name'] == "") {
+            $imagem = "";
+        } else {
+
+            $imagem = $nome_img;
+        }
+
+        $imagem_temp = @$_FILES['imagem']['tmp_name'];
+
+        $ext = pathinfo($imagem, PATHINFO_EXTENSION);
+
+        // $r_ete = new ReportEte;
+        $r_ete->date_at = $data['date_at'];
+        $r_ete->tenant_id = $data['tenant_id'];
+        $r_ete->user_id = Auth::user()->id;    
+        $r_ete->report_type_id = $data['report_type_id'];     
+        $r_ete->arquivo = $imagem;
+        
+        $r_ete->save();
+
+        if ($ext == 'png' or $ext == 'jpg' or $ext == 'jpeg' or $ext == 'gif' or $ext == 'pdf' or $ext == '') {
+            move_uploaded_file($imagem_temp, $caminho);
+        } else {
+            echo 'Extensão de Arquivo não permitida!';
+            exit();
+        }
+
+        return redirect()->route('r_etes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        if (!$r_ete = $this->repository->find($id)) {
+            return redirect()->back();
+        }
+
+        $r_ete->delete();
+
+        return redirect()->route('r_etes.index');
     }
 }

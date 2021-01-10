@@ -7,8 +7,8 @@
     <title>Lumus Soluções Ambientais</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap_custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/appbootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap_custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/app.css') }}">
 
     <link rel="icon" type="image/png" href="{{ url(asset('frontend/assets/images/favicon.png')) }}"/>
 

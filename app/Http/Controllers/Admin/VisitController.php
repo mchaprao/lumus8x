@@ -37,11 +37,6 @@ class VisitController extends Controller
         return view('admin.visits.index', compact('visits', 'users', 'tenants'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $tenants = Tenant::all();
@@ -49,21 +44,14 @@ class VisitController extends Controller
         return view('admin.visits.create', compact('users', 'tenants'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreUpdateVisit $request)
     {
-        // $this->repository->create($request->all());
-
         $data = $request->only([
             'visit_at',
             'tenant_id',            
             'user_id',
-            'arquivo'           
+            'arquivo',
+            'status'           
         ]);
 
         //SCRIPT PARA SUBIR ARQUIVO NA PASTA
@@ -86,6 +74,10 @@ class VisitController extends Controller
         $visit->user_id = $data['user_id'];        
         $visit->arquivo = $imagem;
         
+        if($imagem !== '') {
+            $visit->status = 'C';
+        };
+        
         $visit->save();
 
         if ($ext == 'png' or $ext == 'jpg' or $ext == 'jpeg' or $ext == 'gif' or $ext == 'pdf' or $ext == '') {
@@ -98,54 +90,20 @@ class VisitController extends Controller
         return redirect()->route('visits.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    
+    public function destroy($id)
     {
-       if (!$visit = $this->repository->find($id)) {
+        if (!$visit = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        $tenants = Tenant::all();
-        $users = User::all();
-        return view('admin.visits.edit', compact('visit', 'users', 'tenants'));
-    }
+        $visit->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect()->route('visits.index');
+        
     }
 }

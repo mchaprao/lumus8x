@@ -23,6 +23,12 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Título
                                     </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Categoria
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Publicado em
+                                    </th>
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ações
                                     </th>
@@ -30,6 +36,9 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($posts as $post)
+                                    <?php
+                                        $data = implode('/', array_reverse(explode('-', $post->published_at)));
+                                    ?>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             <img src="{{ url("storage/{$post->image}") }}" alt="{{ $post->title }}" style="max-width: 90px;">
@@ -37,6 +46,14 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $post->title }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $post->category['name'] }}
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $data }}
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">

@@ -47,12 +47,11 @@
                                 @foreach ($analyzes as $analyze)
 
                                     <?php 
-                                        // $data = implode('/', array_reverse(explode('-', $analyze->date_analyzes)));
+                                        $data = implode('/', array_reverse(explode('-', $analyze->date_analyzes)));
                                     ?>
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{-- {{ $data }} --}}
-                                            {{ $analyze->date_analyzes }}
+                                            {{ $data }}
                                         </td>
 
                                         @can('Tenant')
@@ -81,7 +80,7 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             @if($analyze->arquivo == '')
-                                                Vazio
+                                                Sem arquivo
                                             @endif
                                                 {{-- <a href="{{ route('analyzes.show', $analyze->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Arquivo</a> --}}
                                             

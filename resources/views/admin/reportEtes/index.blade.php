@@ -59,14 +59,14 @@
                                             @if($r_ete->arquivo == '')
                                                 Aguardando arquivo
                                             @elseif($r_ete->arquivo !== '')
-                                                <a href="{{ asset('backend/assets/images/reportEte/'.$r_ete->arquivo) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver arquivo</a>
+                                                <a href="{{ asset('backend/assets/images/reportEte/'.$r_ete->arquivo) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Baixar Arquivo</a>
                                             @endif
                                             
                                             @can("Relatório - Editar")
                                             <a href="{{ route('r_etes.edit', $r_ete->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             @endcan
                                             @can("Relatório - Excluir")
-                                            <form class="inline-block" action="" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
+                                            <form class="inline-block" action="{{ route('r_etes.destroy', $r_ete->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">

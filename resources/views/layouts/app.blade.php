@@ -12,6 +12,9 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('backend/assets/css/libs.css') }}">
+        {{-- <link rel="stylesheet" href="{{ mix('backend/assets/css/chaprao.css') }}"> --}}
+        {{-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> --}}
 
         <link rel="icon" type="image/png" href="{{ url(asset('backend/assets/images/favicon.png')) }}"/>
 
@@ -19,7 +22,17 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <script src="{{ mix('frontend/assets/js/Chart.js') }}"></script>
+        <script src="{{ mix('backend/assets/js/libs.js') }}"></script>
+        {{-- <script src="{{ mix('backend/assets/js/chaprao.js') }}"></script> --}}
+        <script src="{{ mix('backend/assets/js/Chart.js') }}"></script>
+
+        
+        <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready( function () {
+                $('#dataTable').DataTable();
+            } );
+        </script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">

@@ -20,7 +20,7 @@ class CreateVisitsTable extends Migration
             $table->date('visit_at');
             $table->unsignedBigInteger('user_id');
             $table->enum('status', ['A', 'P', 'C'])->default('P');
-            $table->string('arquivo');
+            $table->string('arquivo')->nullable();
             $table->timestamps();
 
             $table->foreign('tenant_id')

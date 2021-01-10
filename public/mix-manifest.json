@@ -1,8 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/css/bootstrap_custom.css": "/css/bootstrap_custom.css",
-    "/css/appbootstrap.css": "/css/appbootstrap.css",
+    "/frontend/assets/css/bootstrap_custom.css": "/frontend/assets/css/bootstrap_custom.css",
+    "/frontend/assets/css/app.css": "/frontend/assets/css/app.css",
     "/frontend/assets/css/owl.carousel.min.css": "/frontend/assets/css/owl.carousel.min.css",
     "/frontend/assets/css/style.carousel.css": "/frontend/assets/css/style.carousel.css",
     "/frontend/assets/css/bootstrap.min.css": "/frontend/assets/css/bootstrap.min.css",
@@ -19,5 +19,10 @@
     "/frontend/assets/js/bootstrap.min.js": "/frontend/assets/js/bootstrap.min.js",
     "/frontend/assets/js/popper.min.js": "/frontend/assets/js/popper.min.js",
     "/frontend/assets/js/all.js": "/frontend/assets/js/all.js",
-    "/frontend/assets/js/Chart.js": "/frontend/assets/js/Chart.js"
+    "/frontend/assets/js/Chart.js": "/frontend/assets/js/Chart.js",
+    "/backend/assets/js/chaprao.js": "/backend/assets/js/chaprao.js",
+    "/backend/assets/css/chaprao.css": "/backend/assets/css/chaprao.css",
+    "/backend/assets/js/Chart.js": "/backend/assets/js/Chart.js",
+    "/backend/assets/css/libs.css": "/backend/assets/css/libs.css",
+    "/backend/assets/js/libs.js": "/backend/assets/js/libs.js"
 }

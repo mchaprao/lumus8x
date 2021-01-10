@@ -18,7 +18,16 @@
                             @error('title')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror                            
-                        </div>                        
+                        </div>  
+
+                        <div class="px-4 py-5 bg-white sm:p-6">
+                            <label for="category_id" class="block font-medium text-sm text-gray-700">* Cliente</label>
+                            <select id="category_id" name="category_id" autocomplete="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach     
+                            </select>                            
+                        </div>                      
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="image" class="block font-medium text-sm text-gray-700">* Imagem</label>

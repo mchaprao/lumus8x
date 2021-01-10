@@ -15,6 +15,7 @@ class Post extends Model
         'title',
         'tenant_id',
         'author_id',
+        'category_id',
         'content',
         'slug',
         'image',
@@ -22,8 +23,8 @@ class Post extends Model
         'active'
     ];
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 }
