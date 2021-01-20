@@ -41,6 +41,8 @@ Route::get('/blog{slug}', [HomeController::class, 'article'])->name('article');
 Route::get('/contato', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contato/sendEmail', [HomeController::class, 'sendEmail'])->name('sendEmail');
 Route::get('/contato/sucesso', [HomeController::class, 'sendEmailSuccess'])->name('sendEmailSuccess');
+Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/company', [HomeController::class, 'company'])->name('company');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 

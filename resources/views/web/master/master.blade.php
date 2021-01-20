@@ -52,8 +52,8 @@
             <div class="collapse navbar-collapse justify-content-end text_menu" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="/">Página Inicial</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Empresa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="{{ route('company') }}">Empresa</a></li> -->
+                    <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Serviços</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contato</a></li>
                     <li class="nav-item px-4"><a class=" btn btn_lumus" href="{{ route('login') }}" target="_blank">Acesso Cliente</a></li>            
                 </ul>
@@ -65,23 +65,6 @@
 
 @yield('content')
 
-<article class="main_optin bg-dark text-white py-5">
-    <div class="container">
-        <div class="row mx-auto" style="max-width: 600px;">
-            <h1>Quer ficar por dentro das novidades?</h1>
-
-            <p>Deixe o seu nome e seu melhor e-mail nos campos abaixo e nós vamos lhe informar sobre as novidades
-                voltadas ao meio ambiente.</p>
-
-            <form action="">
-                <input type="email" class="form-control" placeholder="Digite seu nome" size="50">
-                <input type="email" class="form-control" placeholder="Digite seu melhor e-mail" size="50">
-                <button type="submit" class="btn btn-front">Me avise!</button>
-            </form>
-        </div>
-    </div>
-</article>
-
 <section class="main_footer bg-light">
          {{-- style="background: url({{ asset('frontend/assets/images/footer.png') }}) repeat-x bottom center; background-size: 10%;"> --}}
     <div class="container pt-5" style="padding-bottom: 20px;">
@@ -92,8 +75,8 @@
                 <h1 class="pb-2">Navegue <span class="text-front">Aqui!</span></h1>
                 <ul>
                     <li><a href="/">Página Inicial</a></li>                    
-                    <li><a href="{{ route('login') }}">Empresa</a></li>
-                    <li><a href="{{ route('login') }}">Serviços</a></li>
+                    <!-- <li><a href="{{ route('company') }}">Empresa</a></li> -->
+                    <li><a href="{{ route('services') }}">Serviços</a></li>
                     <li><a href="{{ route('contact') }}">Contato</a></li>
                     <li><a href="{{ route('login') }}" class="text-front">Acesso Cliente</a></li>
                 </ul>
@@ -117,12 +100,13 @@
     </div>
 </section>
 
+
 <div class="main_copyright py-3 bg-front text-white text-center">
     {{-- <div class="container"> --}}
         <div class="row">
             <div class="col-12">
                 <p class="mb-0">Lumus Soluções Ambientais | Rua Ouricuri, nº 93 - Santo Antônio - Igarassu/PE</p>
-                <p class="mb-0">Todos os Direitos Reservados - Marcos José Chaprão ®</p>
+                <p class="mb-0">Todos os Direitos Reservados - <b>Chaprão</b>Web®</p>
             </div>
         </div>
     {{-- </div> --}}

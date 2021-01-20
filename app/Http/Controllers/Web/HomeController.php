@@ -41,6 +41,16 @@ class HomeController extends Controller
         return view('dashboard');
     }
 
+    public function company()
+    {
+        return view('web.company');
+    }
+
+    public function services()
+    {
+        return view('web.services');
+    }
+
     public function contact()
     {
         return view('web.contact');

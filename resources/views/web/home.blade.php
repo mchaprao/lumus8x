@@ -52,7 +52,7 @@
     </section>
 
 
-{{-- <div class="main_property_content py-5">
+<!-- <div class="main_property_content py-5">
     <div class="container">
         <div class="row">
             <div class="col-8">
@@ -85,6 +85,24 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div> -->
+
+<article class="main_optin bg-dark text-white py-5">
+    <div class="container">
+        <div class="row mx-auto" style="max-width: 600px;">
+            <h1>Quer ficar por dentro das novidades?</h1>
+
+            <p>Deixe o seu nome e seu melhor e-mail nos campos abaixo e nós vamos lhe informar sobre as novidades
+                voltadas ao meio ambiente.</p>
+
+            <form action="">
+                <input type="email" class="form-control" placeholder="Digite seu nome" size="50">
+                <input type="email" class="form-control" placeholder="Digite seu melhor e-mail" size="50">
+                <button type="submit" class="btn btn-front">Me avise!</button>
+            </form>
+        </div>
+    </div>
+</article>
+
 
 @endsection 
