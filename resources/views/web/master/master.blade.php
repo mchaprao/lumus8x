@@ -9,6 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/bootstrap_custom.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/assets/css/chaprao.css') }}">
 
     <link rel="icon" type="image/png" href="{{ url(asset('frontend/assets/images/favicon.png')) }}"/>
 
@@ -55,7 +56,7 @@
                     <!-- <li class="nav-item"><a class="nav-link" href="{{ route('company') }}">Empresa</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="{{ route('services') }}">Serviços</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contato</a></li>
-                    <li class="nav-item px-4"><a class=" btn btn_lumus" href="{{ route('login') }}" target="_blank">Acesso Cliente</a></li>            
+                    <li class="nav-item px-4"><a class=" btn btn_lumus" href="{{ route('login') }}" target="_blank">Acesso Cliente</a></li>
                 </ul>
 
             </div>
@@ -74,7 +75,7 @@
             <div class="col-12 col-md-3 col-lg-3">
                 <h1 class="pb-2">Navegue <span class="text-front">Aqui!</span></h1>
                 <ul>
-                    <li><a href="/">Página Inicial</a></li>                    
+                    <li><a href="/">Página Inicial</a></li>
                     <!-- <li><a href="{{ route('company') }}">Empresa</a></li> -->
                     <li><a href="{{ route('services') }}">Serviços</a></li>
                     <li><a href="{{ route('contact') }}">Contato</a></li>

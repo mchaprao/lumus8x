@@ -43,7 +43,7 @@
         <div class="row text-center">
             <div class="col-12 col-md-4">
                 <h2 class="icon-envelope">Por E-mail</h2>
-                <p>Nossos atendentes irão entrar em contato com você assim que possível.</p>
+                <p>Nossa equipe entrará em contato com você assim que possível.</p>
                 <p class="pt-2"><a href="mailto:lumus@lumusambiental.com.br" class="text-front">lumus@lumusambiental.com.br</a></p>
             </div>
 

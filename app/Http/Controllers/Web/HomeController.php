@@ -17,7 +17,7 @@ class HomeController extends Controller
         $carousels = Carousel::all();
         $webempresas = WebEmpresa::all();
         // $posts = Post::orderBy('title', 'ASC')->limit(3)->get();
-        $posts = Post::orderBy('title', 'ASC')->get();        
+        $posts = Post::orderBy('title', 'ASC')->get();
 
         return view('web.home', compact('plans', 'carousels', 'webempresas', 'posts'));
     }
@@ -31,13 +31,13 @@ class HomeController extends Controller
 
     public function article()
     {
-        $post = Post::where('slug', $slug)->first();
-
-        return view('web.article', compact('post'));
+//        $post = Post::where('slug', $slug)->first();
+//
+//        return view('web.article', compact('post'));
     }
 
     public function dashboard()
-    {        
+    {
         return view('dashboard');
     }
 
@@ -48,7 +48,8 @@ class HomeController extends Controller
 
     public function services()
     {
-        return view('web.services');
+        $posts = Post::orderBy('title', 'ASC')->get();
+        return view('web.services', compact('posts'));
     }
 
     public function contact()
@@ -76,7 +77,7 @@ class HomeController extends Controller
     }
 
     public function dashEte()
-    { 
+    {
         $grafico = [
             'Teste 1' => 100,
             'Teste 2' => 300,

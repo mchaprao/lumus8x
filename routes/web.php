@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\{
     UserTenantController,
     WebEmpresaController
 };
-use App\Http\Controllers\Admin\ACL\{    
+use App\Http\Controllers\Admin\ACL\{
     RoleController,
     ProperfilController,
     PermissionController,
@@ -41,7 +41,7 @@ Route::get('/blog{slug}', [HomeController::class, 'article'])->name('article');
 Route::get('/contato', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contato/sendEmail', [HomeController::class, 'sendEmail'])->name('sendEmail');
 Route::get('/contato/sucesso', [HomeController::class, 'sendEmailSuccess'])->name('sendEmailSuccess');
-Route::get('/services', [HomeController::class, 'services'])->name('services');
+Route::get('/servicos', [HomeController::class, 'services'])->name('services');
 Route::get('/company', [HomeController::class, 'company'])->name('company');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
@@ -69,13 +69,13 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     // Página da Web
     Route::resource('carousels', CarouselController::class);
     Route::resource('web-empresa', WebEmpresaController::class);
-    
-    // USERS       
+
+    // USERS
     Route::resource('users', UserController::class);
-    Route::resource('users-tenant', UserTenantController::class); 
+    Route::resource('users-tenant', UserTenantController::class);
 
     // CHARTJS
-    Route::get('chartjs', [ChartJsController::class, 'index'])->name('chartjs.index'); 
+    Route::get('chartjs', [ChartJsController::class, 'index'])->name('chartjs.index');
 
     // PLANS
     Route::resource('plans', PlanController::class);
@@ -99,12 +99,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
 
     // PERMISSIONS
     Route::resource('permissions', PermissionController::class);
-
-    // PERMISSION x ROLE
-    // Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionsRole'])->name('roles.permissions.detach');
-    // Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attach');
-    // Route::get('roles/{id}/permissions/create', [PermissionRoleController::class, 'permissionsAvailable'])->name('roles.permissions.available');
-    // Route::get('roles/{id}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions');
 
     Route::get('roles/{id}/permission/{idPermission}/detach', [PermissionRoleController::class, 'detachPermissionsRole'])->name('roles.permissions.detach');
     Route::post('roles/{id}/permissions', [PermissionRoleController::class, 'attachPermissionsRole'])->name('roles.permissions.attach');
@@ -147,7 +141,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
     Route::resource('laboratories', LaboratoryController::class);
 
     // CHARTJS
-    Route::get('relatories/visits', [RelController::class, 'visit'])->name('rel.visit'); 
+    Route::get('relatories/visits', [RelController::class, 'visit'])->name('rel.visit');
 
 });
 
