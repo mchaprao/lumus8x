@@ -4,62 +4,49 @@
 
 <div class="main_contact py-5 bg-light text-center">
     <div class="container">
-        <h1 class="text-front">Artigos</h1>
-        {{-- <p class="mb-0">Quer conversar com um corretor exclusivo e ter o atendimento diferenciado em busca do seu imóvel
-            dos sonhos?</p> --}}
-        {{-- <p>Preencha o formulário abaixo e vamos lhe direcionar para alguém que entende a sua necessidade!</p> --}}
-        <p>Preencha o formulário abaixo e o mais rápido possível entraremos em contato!</p>
 
-        <div class="row text-left">
-            <form action="" method="post" autocomplete="off">
-                @csrf
-                <h2 class="icon-envelope text-black-50">Envie um e-mail</h2>
-                <div class="form-group">
-                    <input type="text" name="name" class="form-control" placeholder="Insira seu nome">
-                </div>
-
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Insira seu melhor e-mail">
-                </div>
-
-                <div class="form-group">
-                    <input type="tel" name="cell" class="form-control" placeholder="Insira seu telefone com DDD...">
-                </div>
-
-                <div class="form-group">
-                    <textarea name="message" rows="5" class="form-control" placeholder="Escreva sua mensagem..."></textarea>
-                </div>
-
-                <div class="form-group text-right">
-                    <button class="btn btn-front">Enviar Contato</button>
-                </div>
-            </form>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <img src="{{ url('storage').'/'.$post->image }}" alt="" class="img-slide-big">
+            </div>
         </div>
+        <div class="col-md-3"></div><br/>
+        <div class="row">
+            <div class="col-md-3"></div><br/>
+            <div class="col-md-6">
+                <h2 class="text-front">{{ $post->title }}</h2>
+                <p>
+                    {!! $post->content !!}
+                </p>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<div class="main_contact_types bg-white p-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-12 col-md-4">
-                <h2 class="icon-envelope">Por E-mail</h2>
-                <p>Nossos atendentes irão entrar em contato com você assim que possível.</p>
-                <p class="pt-2"><a href="mailto:lumus@lumusambiental.com.br" class="text-front">lumus@lumusambiental.com.br</a></p>
-            </div>
+{{--<div class="main_contact_types bg-white p-5">--}}
+{{--    <div class="container">--}}
+{{--        <div class="row text-center">--}}
+{{--            <div class="col-12 col-md-4">--}}
+{{--                <h2 class="icon-envelope">Por E-mail</h2>--}}
+{{--                <p>Nossos atendentes irão entrar em contato com você assim que possível.</p>--}}
+{{--                <p class="pt-2"><a href="mailto:lumus@lumusambiental.com.br" class="text-front">lumus@lumusambiental.com.br</a></p>--}}
+{{--            </div>--}}
 
-            <div class="col-12 col-md-4">
-                <h2 class="icon-phone">Por Telefone | Whatsapp</h2>
-                <p>Estamos disponíveis no número abaixo no horário comercial.</p>
-                <p class="pt-2 text-front">+55 (81) 9 9900-1276</p>
-            </div>
+{{--            <div class="col-12 col-md-4">--}}
+{{--                <h2 class="icon-phone">Por Telefone | Whatsapp</h2>--}}
+{{--                <p>Estamos disponíveis no número abaixo no horário comercial.</p>--}}
+{{--                <p class="pt-2 text-front">+55 (81) 9 9900-1276</p>--}}
+{{--            </div>--}}
 
-            <div class="col-12 col-md-4">
-                <h2 class="icon-share-alt">Redes Sociais</h2>
-                <p>Fique por dentro de tudo o que a gente compartilha em nossas redes sociais!</p>
-                <p><a href="https://www.facebook.com/lumusambiental" target="_blank" class="btn btn-front icon-facebook icon-notext"></a> <a href="https://twitter.com/lumusambiental" target="_blank" class="btn btn-front icon-twitter icon-notext"></a> <a href="https://www.instagram.com/lumusambiental" target="_blank" class="btn btn-front icon-instagram icon-notext"></a></p>
-            </div>
-        </div>
-    </div>
-</div>
+{{--            <div class="col-12 col-md-4">--}}
+{{--                <h2 class="icon-share-alt">Redes Sociais</h2>--}}
+{{--                <p>Fique por dentro de tudo o que a gente compartilha em nossas redes sociais!</p>--}}
+{{--                <p><a href="https://www.facebook.com/lumusambiental" target="_blank" class="btn btn-front icon-facebook icon-notext"></a> <a href="https://twitter.com/lumusambiental" target="_blank" class="btn btn-front icon-twitter icon-notext"></a> <a href="https://www.instagram.com/lumusambiental" target="_blank" class="btn btn-front icon-instagram icon-notext"></a></p>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</div>--}}
 
 @endsection

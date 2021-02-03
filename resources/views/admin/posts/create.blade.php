@@ -17,27 +17,27 @@
                                    value="{{ old('title', '') }}" />
                             @error('title')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror                            
-                        </div>  
+                            @enderror
+                        </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="category_id" class="block font-medium text-sm text-gray-700">* Cliente</label>
+                            <label for="category_id" class="block font-medium text-sm text-gray-700">* Categoria</label>
                             <select id="category_id" name="category_id" autocomplete="category_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach     
-                            </select>                            
-                        </div>                      
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="image" class="block font-medium text-sm text-gray-700">* Imagem</label>
                             <input type="file" name="image" id="image" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                   />                                                      
+                                   />
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="content" class="block font-medium text-sm text-gray-700">* Conteúdo</label>                            
-                                <textarea id="content" name="content" rows="4" class="form-textarea rounded-md shadow-sm mt-1 block w-full" placeholder=""></textarea>
+                            <label for="content" class="block font-medium text-sm text-gray-700">* Conteúdo</label>
+                                <textarea id="content" name="content" rows="4" class="bodyfield form-textarea rounded-md shadow-sm mt-1 block w-full" placeholder=""></textarea>
                             @error('content')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -48,7 +48,7 @@
                                    value="{{ old('published_at', '') }}" />
                             @error('published_at')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror                            
+                            @enderror
                         </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -61,4 +61,19 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.bodyfield',
+            height: 300,
+            menubar: false,
+            plugins: ['link', 'table', 'image', 'autoresize', 'lists'],
+            toolbar: 'undo redo | formatselect | bold italic backcolor | alignleft alignright alignjustify | table | link image | bullist numlist',
+            content_css:[
+                '{{ asset('frontend/assets/css/chaprao.css') }}'
+            ]
+        });
+    </script>
+
 </x-app-layout>

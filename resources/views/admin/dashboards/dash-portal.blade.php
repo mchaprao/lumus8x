@@ -8,15 +8,15 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-200 overflow-hidden shadow-xl sm:rounded-lg">
-                {{-- <x-jet-welcome /> --}}   
-                <br>             
+                {{-- <x-jet-welcome /> --}}
+                <br>
                 <div class="text-center">
                     {{-- <h3>Olá, <strong>{{ Auth::user()->name }}</strong>. Seja muito bem vindo(a) ao <strong>Lumus8x</strong></h3><br> --}}
-                    <h3>Escolha e clique em uma das opções de menu abaixo.</h3>                    
+                    <h3>Escolha e clique em uma das opções de menu abaixo.</h3>
                 </div>
                 <br>
                 {{-- <div class="text-center"> --}}
-                    
+
                     <div class="row">
                         {{-- <div class="flex  min-h-screen bg-gray-200 text-gray-800"> --}}
                             <div class="p-4 w-full">
@@ -65,11 +65,13 @@
                                             </div>
                                         </div>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
                                         <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500">
-                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                                            </svg>
                                         </div>
                                         <div class="flex flex-col flex-grow ml-4">
                                             <div class="text-sm text-gray-500">
@@ -80,7 +82,7 @@
                                             </div>
                                         </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                     <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                         <div class="flex flex-row bg-white shadow-sm rounded p-4">
                                         <div class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500">
@@ -95,11 +97,11 @@
                                             </div>
                                         </div>
                                         </div>
-                                    </div>                                   
+                                    </div>
                                 </div>
                             </div>
                         {{-- </div> --}}
-                    </div><!-- FIM ROW -->                    
+                    </div><!-- FIM ROW -->
                 {{-- </div> --}}
             </div>
         </div>

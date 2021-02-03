@@ -17,7 +17,7 @@ class HomeController extends Controller
         $carousels = Carousel::all();
         $webempresas = WebEmpresa::all();
         // $posts = Post::orderBy('title', 'ASC')->limit(3)->get();
-        $posts = Post::orderBy('title', 'ASC')->get();
+        $posts = Post::where('category_id', '=', 3)->orderBy('title', 'ASC')->limit(6)->get();
 
         return view('web.home', compact('plans', 'carousels', 'webempresas', 'posts'));
     }
@@ -29,11 +29,11 @@ class HomeController extends Controller
         return view('web.blog', compact('posts'));
     }
 
-    public function article()
+    public function article($slug)
     {
-//        $post = Post::where('slug', $slug)->first();
-//
-//        return view('web.article', compact('post'));
+        $post = Post::where('slug', $slug)->first();
+
+        return view('web.article', compact('post'));
     }
 
     public function dashboard()
@@ -48,47 +48,35 @@ class HomeController extends Controller
 
     public function services()
     {
-        $posts = Post::orderBy('title', 'ASC')->get();
+        $posts = Post::where('category_id', '=', 3)->orderBy('title', 'ASC')->get();
+
         return view('web.services', compact('posts'));
-    }
-
-    public function contact()
-    {
-        return view('web.contact');
-    }
-
-    public function sendEmail(Request $request)
-    {
-        // $data = [
-        //     'reply_name' => $request->name,
-        //     'reply_email' => $request->email,
-        //     'cell' => $request->cell,
-        //     'message' => $request->message
-        // ];
-
-        // Mail::send(new Contact($data));
-
-        // return redirect()->route('sendEmailSuccess');
-    }
-
-    public function sendEmailSuccess()
-    {
-        return view('web.contact_success');
     }
 
     public function dashEte()
     {
-        $grafico = [
-            'Teste 1' => 100,
-            'Teste 2' => 300,
-            'Teste 3' => 200,
-            'Teste 4' => 400,
+        $graficoE = [
+            'Temperatura ºC' => 31.2,
+            'pH' => 8,
+            'DBO5' => 90,
+            'DQO' => 639,
         ];
 
-        $labels = json_encode(array_keys($grafico));
-        $values = json_encode(array_values($grafico));
+        $graficoS = [
+            'pH' => 7.8,
+            'DBO5' => 90,
+            'DQO' => 639,
+            'O&G' => 14.5,
+            'Coliformes Totais' => 1600,
+            'Col. Termotolerantes' => 1600,
+        ];
 
-        return view('admin.dashboards.dash-ete', compact('labels', 'values'));
+        $labelsE = json_encode(array_keys($graficoE));
+        $valuesE = json_encode(array_values($graficoE));
+        $labelsS = json_encode(array_keys($graficoS));
+        $valuesS = json_encode(array_values($graficoS));
+
+        return view('admin.dashboards.dash-ete', compact('labelsE', 'valuesE', 'labelsS', 'valuesS'));
     }
 
     public function dashDoc()

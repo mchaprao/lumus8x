@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/ping', function(){
+    return ['pong'=>true];
+});
+
+// Teste
+//Route::post('/imageupload', function (Request $request) {
+//    return [
+//      'location' => 'https://www.google.com.br/google.jpg'
+//    ];
+//})->name('imageupload');
+
+Route::post('/imageupload', 'Admin\UploadController@imageupload')->name('imageupload');

@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/views/web/assets/js/app.js', 'public/js')
-    .postCss('resources/views/web/assets/css/app.css', 'public/css', [
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
     ])
@@ -20,7 +20,7 @@ mix.js('resources/views/web/assets/js/app.js', 'public/js')
 
     .styles(['resources/views/web/assets/css/bootstrap_custom.css'
     ], 'public/frontend/assets/css/bootstrap_custom.css')
-    .styles(['resources/views/web/assets/css/appbootstrap.css'
+    .styles(['resources/views/web/assets/css/app.css'
     ], 'public/frontend/assets/css/app.css')
     .styles(['resources/views/web/assets/css/owl.carousel.min.css'
     ], 'public/frontend/assets/css/owl.carousel.min.css')
@@ -36,7 +36,9 @@ mix.js('resources/views/web/assets/js/app.js', 'public/js')
     ], 'public/frontend/assets/css/fontawesome.min.css')
     .styles(['resources/views/web/assets/css/all.css'
     ], 'public/frontend/assets/css/all.css')
-    
+    .styles(['resources/views/web/assets/css/chaprao.css'
+    ], 'public/frontend/assets/css/chaprao.css')
+
     .scripts(['resources/views/web/assets/js/jquery.js'
     ], 'public/frontend/assets/js/jquery.js')
     .scripts(['resources/views/web/assets/js/script.js'
@@ -59,13 +61,13 @@ mix.js('resources/views/web/assets/js/app.js', 'public/js')
     ], 'public/frontend/assets/js/Chart.js')
 
     .scripts(['resources/views/admin/assets/js/Chart.js'
-    ], 'public/backend/assets/js/chaprao.js')
+    ], 'public/backend/assets/js/Chart.js')
 
     .styles(['resources/views/admin/assets/css/chaprao.css'
     ], 'public/backend/assets/css/chaprao.css')
 
     .scripts(['resources/views/admin/assets/js/chaprao.js'
-    ], 'public/backend/assets/js/Chart.js')
+    ], 'public/backend/assets/js/chaprao.js')
 
     .styles([
         'resources/views/admin/assets/js/datatables/css/jquery.dataTables.min.css',
@@ -81,13 +83,13 @@ mix.js('resources/views/web/assets/js/app.js', 'public/js')
         'resources/views/admin/assets/js/jquery.form.js',
         'resources/views/admin/assets/js/jquery.mask.js',
     ], 'public/backend/assets/js/libs.js')
-    
-    .copyDirectory('resources/views/web/assets/images', 'public/frontend/assets/images')    
+
+    .copyDirectory('resources/views/web/assets/images', 'public/frontend/assets/images')
     .copyDirectory('resources/views/web/assets/css/fonts', 'public/frontend/assets/css/fonts')
 
     .copyDirectory('resources/views/admin/assets/images', 'public/backend/assets/images')
     .copyDirectory('resources/views/admin/assets/css/fonts', 'public/backend/assets/css/fonts')
     .copyDirectory('resources/views/admin/assets/js/datatables', 'public/backend/assets/js/datatables')
     .copyDirectory('resources/views/admin/assets/js/select2', 'public/backend/assets/js/select2')
-    .copyDirectory('resources/views/admin/assets/js/tinymce', 'public/backend/assets/js/tinymce')    
+    .copyDirectory('resources/views/admin/assets/js/tinymce', 'public/backend/assets/js/tinymce')
     ;

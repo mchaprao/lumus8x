@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="tel" name="cell" class="form-control" placeholder="Insira seu telefone com DDD...">
+                    <input type="tel" name="telephone" class="form-control" placeholder="Insira seu telefone com DDD...">
                 </div>
 
                 <div class="form-group">

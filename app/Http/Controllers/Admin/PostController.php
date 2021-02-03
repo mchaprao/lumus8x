@@ -21,7 +21,7 @@ class PostController extends Controller
     }
 
     public function index()
-    {        
+    {
         $categories = Category::all();
         $posts = $this->repository->orderby('id', 'desc')->paginate();
 
@@ -43,7 +43,7 @@ class PostController extends Controller
         if ($request->hasFile('image') && $request->image->isValid()) {
             $data['image'] = $request->image->store("tenants/{$tenant->uuid}/posts");
         }
-        
+
         $this->repository->create($data);
 
         return redirect()->route('posts.index');
@@ -60,11 +60,13 @@ class PostController extends Controller
 
     public function edit($id)
     {
+        $categories = Category::all();
+
         if (!$post = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     public function update(StoreUpdatePost $request, $id)

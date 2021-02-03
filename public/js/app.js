@@ -21241,10 +21241,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/views/web/assets/css/app.css":
-/*!************************************************!*\
-  !*** ./resources/views/web/assets/css/app.css ***!
-  \************************************************/
+/***/ "./resources/css/app.css":
+/*!*******************************!*\
+  !*** ./resources/css/app.css ***!
+  \*******************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -21252,23 +21252,23 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./resources/views/web/assets/js/app.js":
-/*!**********************************************!*\
-  !*** ./resources/views/web/assets/js/app.js ***!
-  \**********************************************/
+/***/ "./resources/js/app.js":
+/*!*****************************!*\
+  !*** ./resources/js/app.js ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/views/web/assets/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 /***/ }),
 
-/***/ "./resources/views/web/assets/js/bootstrap.js":
-/*!****************************************************!*\
-  !*** ./resources/views/web/assets/js/bootstrap.js ***!
-  \****************************************************/
+/***/ "./resources/js/bootstrap.js":
+/*!***********************************!*\
+  !*** ./resources/js/bootstrap.js ***!
+  \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21298,14 +21298,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /***/ }),
 
 /***/ 0:
-/*!*********************************************************************************************!*\
-  !*** multi ./resources/views/web/assets/js/app.js ./resources/views/web/assets/css/app.css ***!
-  \*********************************************************************************************/
+/*!***********************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/css/app.css ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/mchaprao/projetos/lumus8x/resources/views/web/assets/js/app.js */"./resources/views/web/assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/mchaprao/projetos/lumus8x/resources/views/web/assets/css/app.css */"./resources/views/web/assets/css/app.css");
+__webpack_require__(/*! C:\projetos\lumus8x\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\projetos\lumus8x\resources\css\app.css */"./resources/css/app.css");
 
 
 /***/ })

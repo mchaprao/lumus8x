@@ -37,11 +37,10 @@ class StoreUpdatePost extends FormRequest
              'published_at' => ['required'],
              'image' => ['required', 'image'],
         ];
-        
+
         if ($this->method() == 'PUT') {
             $rules['image'] = ['nullable', 'image'];
         }
-
         return $rules;
     }
 }

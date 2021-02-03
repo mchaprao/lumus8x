@@ -22,7 +22,7 @@
         <div class="container">
             <header class="d-flex justify-content-between align-items-center border-bottom border-front mb-5">
                 <h2 class="text-front">Alguns dos nossos serviços</h2>
-                <a href="" class="text-front">Ver mais</a>
+                <a href="{{ route('services') }}" class="text-front">Ver mais</a>
             </header>
             <div class="row">
                 @foreach($posts as $post)
@@ -31,7 +31,7 @@
                                 <a href="">
                                     <img src="{{ url('storage').'/'.$post->image }}" alt="" class="img-slide-big">
 
-                                    <h1><a href="#" class="text-post">{{ $post->title }}</a></h1>
+                                    <h1><a href="{{ route('article', ['slug' => $post->slug]) }}" class="text-post">{{ $post->title }}</a></h1>
                                 </a>
                         </article>
                     </div>
