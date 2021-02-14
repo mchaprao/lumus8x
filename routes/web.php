@@ -22,7 +22,8 @@ use App\Http\Controllers\Admin\{
     ReportTypeController,
     UserTenantController,
     WebEmpresaController,
-    EquipmentController
+    EquipmentController,
+    AnalyzeItemController
 };
 use App\Http\Controllers\Admin\ACL\{
     RoleController,
@@ -41,8 +42,6 @@ Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [HomeController::class, 'article'])->name('article');
 
 Route::get('/contato', [ContactController::class, 'contact'])->name('contact');
-
-//Route::get('/contato', [HomeController::class, 'contact'])->name('contact');
 Route::post('/contato/sendEmail', [ContactController::class, 'sendEmail'])->name('sendEmail');
 Route::get('/contato/sucesso', [ContactController::class, 'sendEmailSuccess'])->name('sendEmailSuccess');
 Route::get('/servicos', [HomeController::class, 'services'])->name('services');
@@ -146,6 +145,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
         // Laboratório
         Route::resource('parameters', ParameterAnalyzeController::class);
         Route::resource('analyzes', AnalyzeController::class);
+        Route::get('analyze-item/create/{analyze}', [AnalyzeItemController::class, 'create'])->name('analyze-item.create');
+        Route::post('analyze-item/store/{analyze}', [AnalyzeItemController::class, 'store'])->name('analyze-item.store');
         Route::resource('locations', LocalAnalyzeController::class);
         Route::resource('laboratories', LaboratoryController::class);
 

@@ -19,8 +19,8 @@ class LaboratoryController extends Controller
     }
 
     public function index()
-    {        
-        $laboratories = $this->repository->orderby('id', 'asc')->paginate();
+    {
+        $laboratories = $this->repository->orderby('name', 'asc')->paginate();
 
         return view('admin.laboratories.index', compact('laboratories'));
     }
@@ -54,7 +54,7 @@ class LaboratoryController extends Controller
 
         return view('admin.laboratories.edit', compact('laboratory'));
     }
-    
+
     public function update(StoreUpdateLaboratory $request, $id)
     {
         if (!$laboratory = $this->repository->find($id)) {

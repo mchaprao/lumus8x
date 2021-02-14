@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            @can('Adicionar Equipamento')
+            @can('Efluentes - Equipamentos - Adicionar')
             <div class="block mb-8">
                 <a href="{{ route('equipments.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Novo Equipamento</a>
             </div>
@@ -31,11 +31,11 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Situação
                                     </th>
-                                    @can('Acoes Equipamentos')
+{{--                                    @can('Efluentes - Equipamentos - Ações')--}}
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ações
                                     </th>
-                                    @endcan
+{{--                                    @endcan--}}
                                 </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
@@ -53,32 +53,33 @@
                                             {{ $equipment->description }}
                                         </td>
 
-                                        @if($equipment->status == 'G')
+                                        @if($equipment->status == 'F')
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-front">
-{{--                                            {{ ($equipment->status == 'G' ? 'Funcional' : 'Manutenção') }}--}}
                                                 Funcionando
                                         </td>
                                         @elseif($equipment->status == 'M')
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-orange">
                                                 Manutenção
                                             </td>
-                                        @elseif($equipment->status == 'B')
+                                        @elseif($equipment->status == 'Q')
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-danger">
                                                 Quebrado
                                             </td>
                                         @endif
 
-                                        @can('Acoes Equipamentos')
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('equipments.show', $equipment->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver</a>
+                                            @can('Efluentes - Equipamentos - Editar')
                                             <a href="{{ route('equipments.edit', $equipment->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
+                                            @endcan
+                                            @can('Efluentes - Equipamentos - Excluir')
                                             <form class="inline-block" action="{{ route('equipments.destroy', $equipment->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                 <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
                                             </form>
+                                            @endcan
                                         </td>
-                                        @endcan
                                     </tr>
                                 @endforeach
                                 </tbody>

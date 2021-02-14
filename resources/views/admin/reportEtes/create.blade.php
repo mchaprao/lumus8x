@@ -17,7 +17,7 @@
                                    value="{{ old('date_at', '') }}" />
                             @error('date_at')
                                 <p class="text-sm text-red-600">{{ $message }}</p>
-                            @enderror                            
+                            @enderror
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -25,8 +25,8 @@
                             <select id="tenant_id" name="tenant_id" autocomplete="tenant_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 @foreach($tenants as $tenant)
                                     <option value="{{ $tenant->id }}">{{ $tenant->name }}</option>
-                                @endforeach     
-                            </select>                            
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -36,15 +36,15 @@
                                     <option value="{{ $r_type->id }}">
                                         {{ $r_type->name }}
                                     </option>
-                                @endforeach     
-                            </select>                            
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="imagem" class="block font-medium text-sm text-gray-700">* Arquivo</label>
                             <input type="file" name="imagem" id="imagem" class="form-input rounded-md shadow-sm mt-1 block w-full"
-                                  onChange="carregarImg();" />                                                      
-                        </div>                        
+                                  onChange="carregarImg();" />
+                        </div>
 
                         <div class="flex items-center justify-end px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <button class="inline-flex items-center mr-2 px-4 py-2 bg-blue-400 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">

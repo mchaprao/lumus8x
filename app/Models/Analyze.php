@@ -11,7 +11,7 @@ class Analyze extends Model
     use HasFactory;
     // use TenantTrait;
 
-    protected $fillable = ['date_analyzes', 'slug', 'arquivo', 'tenant_id', 'laboratory_id'];
+    protected $fillable = ['date_analyzes', 'slug', 'status', 'arquivo', 'tenant_id', 'laboratory_id'];
 
     public function tenant()
     {
@@ -21,6 +21,11 @@ class Analyze extends Model
     public function laboratory()
     {
         return $this->belongsTo(Laboratory::class);
+    }
+
+    public function parameters()
+    {
+        return $this->belongsToMany('App\Models\ParameterAnalyze', 'analyze_items','parameter_id','analyze_id');
     }
 
 }

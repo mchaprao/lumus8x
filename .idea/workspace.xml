@@ -1,49 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b761c8e3-4c9a-484e-be4d-2c9a8d76abd9" name="Default Changelist" comment="Update-27JAN21">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EquipmentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UploadController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUpdateContact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Contact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Equipment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_01_29_083150_create_equipments_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_02_03_093010_create_contacts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/dashboards/dashboard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/equipments/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/equipments/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/equipments/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/equipments/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/web/assets/css/chaprao.css" afterDir="false" />
+    <list default="true" id="b761c8e3-4c9a-484e-be4d-2c9a8d76abd9" name="Default Changelist" comment="Update-02FEV21">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyzeItemController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/HomeControllerOLD.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUpdateEquipment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/backend/assets/images/visits/boleto-Net-JAN18.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/analyzeItens/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/analyzeItens/createOLD.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/analyzes/edit.bladeOLD.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PostController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ACL/ProperfilController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ACL/ProperfilController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyzeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AnalyzeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/EquipmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/EquipmentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LaboratoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LaboratoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReportEteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ReportEteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TenantController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TenantController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/VisitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/VisitController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Web/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Web/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUpdatePost.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUpdatePost.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/backend/assets/js/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/backend/assets/js/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/backend/assets/js/chaprao.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/backend/assets/js/chaprao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreUpdateAnalyze.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreUpdateAnalyze.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Analyze.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Analyze.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Equipment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Equipment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_29_083150_create_equipments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_01_29_083150_create_equipments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lumus8x.sql" beforeDir="false" afterPath="$PROJECT_DIR$/lumus8x.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analyzes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analyzes/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analyzes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analyzes/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analyzes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analyzes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/analyzes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/analyzes/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboards/dash-ete.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboards/dash-ete.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboards/dash-portal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboards/dash-portal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/posts/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/article.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/article.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/assets/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/assets/css/appbootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/assets/css/appbootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/assets/css/app.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/web/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/web/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/equipments/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/equipments/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/equipments/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/equipments/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/equipments/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/equipments/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/equipments/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/equipments/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/reportEtes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reportEtes/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/reportEtes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/reportEtes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/visits/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/visits/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/visits/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/visits/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +193,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Requests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Web" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -214,11 +207,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projetos\lumus8x\app\Http\Controllers\Web" />
       <recent name="C:\projetos\lumus8x\app\Http\Requests" />
+      <recent name="C:\projetos\lumus8x\resources\views\admin\analyzeItens" />
+      <recent name="C:\projetos\lumus8x\resources\views\admin\analyzes" />
       <recent name="C:\projetos\lumus8x\resources\views\admin\dashboards" />
-      <recent name="C:\projetos\lumus8x\resources\views\admin" />
-      <recent name="C:\projetos\lumus8x\resources\views\web\assets\css" />
-      <recent name="C:\projetos\lumus8x\resources\css" />
     </key>
   </component>
   <component name="RunManager" selected="npm.dev">
@@ -269,7 +262,14 @@
       <workItem from="1611917496658" duration="11764000" />
       <workItem from="1612088692902" duration="11247000" />
       <workItem from="1612354041116" duration="3416000" />
-      <workItem from="1612370533056" duration="4711000" />
+      <workItem from="1612370533056" duration="12945000" />
+      <workItem from="1612467995055" duration="1304000" />
+      <workItem from="1612643445391" duration="5113000" />
+      <workItem from="1612863993211" duration="9032000" />
+      <workItem from="1613050062304" duration="8686000" />
+      <workItem from="1613123486280" duration="17885000" />
+      <workItem from="1613213540396" duration="40222000" />
+      <workItem from="1613306483126" duration="10184000" />
     </task>
     <task id="LOCAL-00001" summary="Update-27JAN21">
       <created>1611795490083</created>
@@ -278,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611795490095</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update-02FEV21">
+      <created>1612379588171</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1612379588171</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,6 +306,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Update-27JAN21" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update-27JAN21" />
+    <MESSAGE value="Update-02FEV21" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update-02FEV21" />
   </component>
 </project>

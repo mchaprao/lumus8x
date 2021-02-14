@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            @can("Visita - Adicionar")
+            @can('Efluentes - Relatorios - Adicionar')
             <div class="block mb-8">
                 <a href="{{ route('r_etes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Novo Relatório</a>
             </div>
@@ -25,11 +25,11 @@
                                     @can('Clientes')
                                         <th scope="col" width="100" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Cliente
-                                        </th>        
-                                    @endcan                                    
+                                        </th>
+                                    @endcan
                                     <th scope="col" width="150" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Tipo de Documento
-                                    </th>                                    
+                                    </th>
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ações
                                     </th>
@@ -48,12 +48,12 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                                 {{ $r_ete->tenant['name'] }}
                                             </td>
-                                        @endcan                                        
+                                        @endcan
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $r_ete->reportType['name'] }}
                                         </td>
-                                        
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
 
                                             @if($r_ete->arquivo == '')
@@ -61,11 +61,11 @@
                                             @elseif($r_ete->arquivo !== '')
                                                 <a href="{{ asset('backend/assets/images/reportEte/'.$r_ete->arquivo) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Baixar Arquivo</a>
                                             @endif
-                                            
-                                            @can("Relatório - Editar")
+
+                                            @can('Efluentes - Relatorios - Editar')
                                             <a href="{{ route('r_etes.edit', $r_ete->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             @endcan
-                                            @can("Relatório - Excluir")
+                                            @can('Efluentes - Relatorios - Excluir')
                                             <form class="inline-block" action="{{ route('r_etes.destroy', $r_ete->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -78,7 +78,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>                        
+                        </div>
                         <div class="p-2 bg-gray-200">
                             {{ $r_etes->links() }}
                         </div>

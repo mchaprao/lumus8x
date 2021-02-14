@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            @can("Visita - Adicionar")
+            @can('Visita - Adicionar')
             <div class="block mb-8">
                 <a href="{{ route('visits.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Nova Visita</a>
             </div>
@@ -34,7 +34,7 @@
                                     <th scope="col" width="50" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Status
                                     </th>
-                                    
+
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Ações
                                     </th>
@@ -67,7 +67,7 @@
                                                 Concluída
                                             @endif
                                         </td>
-                                        
+
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
 
                                             @if($visit->arquivo == '')
@@ -76,11 +76,11 @@
                                                 <a href="{{ url("backend/assets/images/visits/{$visit->arquivo}") }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Baixar arquivo</a>
                                                 <a href="{{ route('rel.visit', $visit->id) }}" target="_blank" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">DomPDF</a>
                                             @endif
-                                            
-                                            {{-- @can("Visita - Editar")
-                                            <a href="{{ route('visits.edit', $visit->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
-                                            @endcan --}}
-                                            @can("Visita - Excluir")
+
+{{--                                            --}}{{-- @can("Visita - Editar")--}}
+{{--                                            <a href="{{ route('visits.edit', $visit->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>--}}
+{{--                                            @endcan --}}
+                                            @can('Visita - Excluir')
                                             <form class="inline-block" action="{{ route('visits.destroy', $visit->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir o registro?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -93,7 +93,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>                        
+                        </div>
                         <div class="p-2 bg-gray-200">
                             {{ $visits->links() }}
                         </div>

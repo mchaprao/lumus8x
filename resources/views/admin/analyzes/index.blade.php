@@ -7,12 +7,12 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            @can('Análises - Adicionar')
+            @can('Efluentes - Analises - Adicionar')
                 <div class="block mb-8">
                 <a href="{{ route('analyzes.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Adicionar Nova Coleta</a>
             </div>
             @endcan
-            
+
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -45,8 +45,7 @@
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($analyzes as $analyze)
-
-                                    <?php 
+                                    <?php
                                         $data = implode('/', array_reverse(explode('-', $analyze->date_analyzes)));
                                     ?>
                                     <tr>
@@ -60,11 +59,11 @@
                                         </td>
                                         @endcan
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">                                            
-                                                {{ $analyze->laboratory['name'] }}                                            
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                {{ $analyze->laboratory['name'] }}
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">                                            
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             @if($analyze->status == 'A')
                                                 <span class="badge badge-success">Aguardando coleta</span>
                                             @elseif($analyze->status == 'R')
@@ -79,21 +78,24 @@
                                         </td> --}}
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            @if($analyze->arquivo == '')
-                                                Sem arquivo
-                                            @endif
+{{--                                            @if($analyze->arquivo == '')--}}
+{{--                                                Sem arquivo--}}
+{{--                                            @endif--}}
                                                 {{-- <a href="{{ route('analyzes.show', $analyze->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Arquivo</a> --}}
-                                            
+
                                             <a href="{{ route('analyzes.show', $analyze->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">Ver</a>
-                                            @can('Analise - Editar')
+                                            @can('Efluentes - Analises - Editar')
                                                 <a href="{{ route('analyzes.edit', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Editar</a>
                                             @endcan
-                                            @can('Analise - Excluir')
+                                            @can('Efluentes - Analises - Excluir')
                                                 <form class="inline-block" action="{{ route('analyzes.destroy', $analyze->id) }}" method="POST" onsubmit="return confirm('Deseja realmente excluir esse registro?');">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Excluir">
                                                 </form>
+                                            @endcan
+                                            @can('Efluentes - Analises - Parametro')
+                                                <a href="{{ route('analyze-item.create', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">+ Parâmetro</a>
                                             @endcan
                                             {{-- <a href="{{ route('analyzes.roles', $analyze->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Cargos</a> --}}
                                         </td>

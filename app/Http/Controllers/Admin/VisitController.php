@@ -19,28 +19,34 @@ class VisitController extends Controller
     {
         $this->repository = $visit;
 
-        $this->middleware(['can:Efluentes']);
+        $this->middleware(['can:Visita']);
     }
-    
+
     public function index()
     {
         $empresa = Auth::user()->tenant_id;
-        
         if(Auth::user()->tenant_id == 1){
             $visits = $this->repository->latest()->paginate();
         }else {
             $visits = $this->repository->orderby('visit_at', 'desc')->where('tenant_id', '=', $empresa)->paginate();
         }
 
-        $tenants = Tenant::all();        
+        $tenants = Tenant::all();
         $users = User::all();
         return view('admin.visits.index', compact('visits', 'users', 'tenants'));
     }
 
     public function create()
     {
-        $tenants = Tenant::all();
-        $users = User::all();
+        $empresa = Auth::user()->tenant_id;
+        if(Auth::user()->tenant_id == 1){
+            $tenants = Tenant::all();
+            $users = User::all();
+        }else {
+            $tenants = Tenant::where('id', '=', $empresa)->get();
+            $users = User::where('tenant_id', '=', $empresa)->get();
+        }
+
         return view('admin.visits.create', compact('users', 'tenants'));
     }
 
@@ -48,14 +54,14 @@ class VisitController extends Controller
     {
         $data = $request->only([
             'visit_at',
-            'tenant_id',            
+            'tenant_id',
             'user_id',
             'arquivo',
-            'status'           
+            'status'
         ]);
 
         //SCRIPT PARA SUBIR ARQUIVO NA PASTA
-        $nome_img = preg_replace('/[ -]+/', '-', @$_FILES['imagem']['name']);        
+        $nome_img = preg_replace('/[ -]+/', '-', @$_FILES['imagem']['name']);
         $caminho = 'backend/assets/images/visits/'. $nome_img;
         if (@$_FILES['imagem']['name'] == "") {
             $imagem = "";
@@ -71,13 +77,13 @@ class VisitController extends Controller
         $visit = new Visit;
         $visit->visit_at = $data['visit_at'];
         $visit->tenant_id = $data['tenant_id'];
-        $visit->user_id = $data['user_id'];        
+        $visit->user_id = $data['user_id'];
         $visit->arquivo = $imagem;
-        
+
         if($imagem !== '') {
             $visit->status = 'C';
         };
-        
+
         $visit->save();
 
         if ($ext == 'png' or $ext == 'jpg' or $ext == 'jpeg' or $ext == 'gif' or $ext == 'pdf' or $ext == '') {
@@ -94,7 +100,7 @@ class VisitController extends Controller
     {
         //
     }
-    
+
     public function destroy($id)
     {
         if (!$visit = $this->repository->find($id)) {
@@ -104,6 +110,6 @@ class VisitController extends Controller
         $visit->delete();
 
         return redirect()->route('visits.index');
-        
+
     }
 }

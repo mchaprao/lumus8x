@@ -19,8 +19,8 @@ class ProperfilController extends Controller
     }
 
     public function index()
-    {        
-        $properfis = $this->repository->orderby('id', 'asc')->paginate();
+    {
+        $properfis = $this->repository->orderby('name', 'asc')->paginate();
 
         return view('admin.properfis.index', compact('properfis'));
     }
@@ -54,7 +54,7 @@ class ProperfilController extends Controller
 
         return view('admin.properfis.edit', compact('properfil'));
     }
-    
+
     public function update(StoreUpdatePerfil $request, $id)
     {
         if (!$properfil = $this->repository->find($id)) {

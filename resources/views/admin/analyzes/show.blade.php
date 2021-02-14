@@ -12,6 +12,9 @@
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table class="min-w-full divide-y divide-gray-200 w-full">
+                                <?php
+                                    $data = implode('/', array_reverse(explode('-', $analyze->date_analyzes)));
+                                ?>
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Cliente
@@ -25,7 +28,7 @@
                                         Data de Coleta
                                     </th>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $analyze->date_analyzes }}
+                                        {{ $data }}
                                     </td>
                                 </tr>
                                 <tr class="border-b">
@@ -37,24 +40,25 @@
                                         {{ $analyze->laboratory['name'] }}
                                     </td>
                                 </tr>
-                                {{-- 
                                 <tr class="border-b">
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Email
+                                        Parâmetros
                                     </th>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->email }}
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 bg-gray-50 divide-y divide-gray-200">
+                                        RESULTADO / LOCAL DA COLETA
                                     </td>
                                 </tr>
+                                @foreach ($itens as $item)
                                 <tr class="border-b">
-                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Empresa
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                        {{ $item->parameter['name'] }}
                                     </th>
-                                    <td class="px-6 py-4 uppercase whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
-                                        {{ $user->tenant['name'] }}
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 bg-white divide-y divide-gray-200">
+                                        {{ $item->result }} {{$item->parameter['unit']}} / {{ $item->location }}
                                     </td>
-                                </tr> --}}
-                                
+                                </tr>
+                                @endforeach
+
                             </table>
                         </div>
                     </div>
@@ -64,7 +68,7 @@
                  <div class="block mt-8">
                 <a href="{{ route('analyzes.index') }}" class="bg-gray-400 hover:bg-gray-600 text-black font-bold py-2 px-4 rounded">Lista de Análises</a>
             </div>
-            @endcan 
+            @endcan
         </div>
     </div>
 </x-app-layout>

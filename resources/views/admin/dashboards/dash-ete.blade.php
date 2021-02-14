@@ -16,27 +16,28 @@
                 <div class="row">
                     <div class="p-4 w-full">
                         <div class="grid grid-cols-12 gap-4">
-                            <div class="col-span-12 sm:col-span-6 md:col-span-3">
-                                <div class="flex flex-row bg-white shadow-sm rounded p-4">
-                                    <div
-                                        class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
-                                        <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                             viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="flex flex-col flex-grow ml-4">
-                                        <div class="text-sm text-gray-500">
-                                            <a href="{{ route('visits.index') }}">Módulo Efluentes</a>
+                            @can('Visita')
+                                <div class="col-span-12 sm:col-span-6 md:col-span-3">
+                                    <div class="flex flex-row bg-white shadow-sm rounded p-4">
+                                        <div
+                                            class="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500">
+                                            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                 viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                            </svg>
                                         </div>
-                                        <div class="font-bold text-lg">
-                                            <a href="{{ route('visits.index') }}">VISITA TÉCNICA</a>
+                                        <div class="flex flex-col flex-grow ml-4">
+                                            <div class="text-sm text-gray-500">
+                                                <a href="{{ route('visits.index') }}">Módulo Efluentes</a>
+                                            </div>
+                                            <div class="font-bold text-lg">
+                                                <a href="{{ route('visits.index') }}">VISITA TÉCNICA</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            @endcan
                             @can('Efluentes - Relatorios')
                                 <div class="col-span-12 sm:col-span-6 md:col-span-3">
                                     <div class="flex flex-row bg-white shadow-sm rounded p-4">
@@ -109,7 +110,30 @@
                     </div>
                     @endcan
                 </div><!-- FIM ROW -->
+                <div class="row">
+                    <div class="p-4 w-full">
+                        <form action="" method="GET">
 
+                            <select onChange="this.form.submit()" name="interval" class="float-right">
+                                @foreach($groupDate as $item)
+                                    <option {{ $interval==$item->date_analyze?'selected="selected"':'' }} value="{{ $item->date_analyze }}">{{ $item->date_analyze }}</option>
+                                @endforeach
+                            </select>
+                        </form>
+                    </div>
+                </div>
+{{--                <div class="row">--}}
+{{--                    <div class="p-4 w-full">--}}
+{{--                        <form action="" method="GET">--}}
+{{--                            <select onChange="this.form.submit()" name="interval" class="float-right">--}}
+{{--                                <option {{ $interval==30?'selected="selected"':'' }} value="30">Últimos 30 dias</option>--}}
+{{--                                <option {{ $interval==60?'selected="selected"':'' }} value="60">Últimos 2 meses</option>--}}
+{{--                                <option {{ $interval==90?'selected="selected"':'' }} value="90">Últimos 3 meses</option>--}}
+{{--                                <option {{ $interval==120?'selected="selected"':'' }} value="120">Últimos 4 meses</option>--}}
+{{--                            </select>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="flex flex-row flex-wrap flex-grow mt-2">
                     <div class="w-full md:w-1/2 p-3">
                         <!--Graph Card-->

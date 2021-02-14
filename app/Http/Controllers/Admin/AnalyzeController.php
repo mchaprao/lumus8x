@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateAnalyze;
 use App\Models\Analyze;
+use App\Models\AnalyzeItem;
 use App\Models\Laboratory;
 use App\Models\Tenant;
 use Illuminate\Http\Request;
@@ -21,17 +22,15 @@ class AnalyzeController extends Controller
 
         $this->middleware(['can:Efluentes - Analises']);
     }
-    
+
     public function index()
     {
         $empresa = Auth::user()->tenant_id;
-        
         if(Auth::user()->tenant_id == 1){
-            $analyzes = $this->repository->latest()->paginate();
+            $analyzes = $this->repository->orderby('date_analyzes', 'desc')->paginate();
         }else {
             $analyzes = $this->repository->orderby('date_analyzes', 'desc')->where('tenant_id', '=', $empresa)->paginate();
         }
-
         $tenants = Tenant::all();
         $laboratories = Laboratory::all();
 
@@ -40,96 +39,69 @@ class AnalyzeController extends Controller
 
     public function create()
     {
-        $tenants = Tenant::all();
+        $empresa = Auth::user()->tenant_id;
+        if(Auth::user()->tenant_id == 1){
+            $tenants = Tenant::all();
+        }else {
+            $tenants = Tenant::where('id', '=', $empresa)->get();
+        }
+
         $laboratories = Laboratory::all();
 
         return view('admin.analyzes.create', compact('tenants', 'laboratories'));
     }
 
-    public function store(StoreUpdateAnalyze $request)
+    public function store(Request $request)
     {
-        // $data = $request->all();
-
-        // $tenant = auth()->user()->tenant;
-
-        // if ($request->hasFile('pdf') && $request->arquivo->isValid()) {
-        //     $data['arquivo'] = $request->arquivo->store("tenants/{$tenant->uuid}/analyzes");
-        // }
-        
-        // $this->repository->create($data);
-
-        // return redirect()->route('analyzes.index');
-
-        $data = $request->only([
-            'date_analyzes',
-            'arquivo',
-            'laboratory_id',
-            'tenant_id'
-        ]);
-
         $tenant = auth()->user()->tenant;
 
         if ($request->hasFile('pdf') && $request->arquivo->isValid()) {
             $data['arquivo'] = $request->arquivo->store("tenants/{$tenant->uuid}/analyzes");
         }
 
-        $analyze = new Analyze;
-
-        $analyze->tenant_id = $data['tenant_id'];
-        $analyze->laboratory_id = $data['laboratory_id'];
-        $analyze->date_analyzes = $data['date_analyzes'];
-        $analyze->arquivo = $data['arquivo'];
-        
-        $analyze->save();
+        $dados = new Analyze();
+        $dados->tenant_id = $request->tenant_id;
+        $dados->laboratory_id = $request->laboratory_id;
+        $dados->date_analyzes = $request->date_analyzes;
+        $dados->arquivo = $request->arquivo;
+        $dados->save();
 
         return redirect()->route('analyzes.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
+        $empresa = Auth::user()->tenant_id;
         $tenants = Tenant::all();
         $laboratories = Laboratory::all();
+        $itens = AnalyzeItem::where('tenant_id', '=', $empresa)->get();
 
         if (!$analyze = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.analyzes.show', compact('analyze', 'tenants', 'laboratories'));
+        return view('admin.analyzes.show', compact('analyze', 'tenants', 'laboratories', 'itens'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $tenants = Tenant::all();
+        $empresa = Auth::user()->tenant_id;
+        if(Auth::user()->tenant_id == 1){
+            $tenants = Tenant::all();
+        }else {
+            $tenants = Tenant::where('id', '=', $empresa)->get();
+        }
+
         $laboratories = Laboratory::all();
+        $itens = AnalyzeItem::where('tenant_id', '=', $empresa)->get();
 
         if (!$analyze = $this->repository->find($id)) {
             return redirect()->back();
         }
 
-        return view('admin.analyzes.edit', compact('analyze', 'tenants', 'laboratories'));
+        return view('admin.analyzes.edit', compact('analyze', 'tenants', 'laboratories', 'itens'));
     }
 
-
-    /**
-     * Update register by id
-     *
-     * @param  \App\Http\Requests\StoreUpdateProduct  $request
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function update(StoreUpdateAnalyze $request, $id)
     {
         if (!$analyze = $this->repository->find($id)) {
@@ -154,12 +126,6 @@ class AnalyzeController extends Controller
         return redirect()->route('analyzes.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         if (!$analyze = $this->repository->find($id)) {

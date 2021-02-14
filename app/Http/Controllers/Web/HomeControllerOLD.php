@@ -59,12 +59,11 @@ class HomeController extends Controller
     public function dashEte(Request $request)
     {
         $empresa = Auth::user()->tenant_id;
-        $analyzes = AnalyzeItem::all();
 
-        $interval = intval($request->input('interval', 30));
-        if ($interval > 120) {
-            $interval = 120;
-        }
+        $interval = intval($request->input('interval', 1));
+//        if ($interval > 120) {
+//            $interval = 120;
+//        }
 
 //        $groupDate = AnalyzeItem::select('date_analyze')->groupBy('date_analyze')->get();
         $groupDate = AnalyzeItem::select('date_analyze')
@@ -80,18 +79,18 @@ class HomeController extends Controller
 
         $graficoE = [];
 //        $dateAll = AnalyzeItem::selectRaw('date_analyze, count(date_analyze) as c')->groupBy('date_analyze')->get();
-//        $sql = "SELECT parameter_analyzes.name, analyze_items.result FROM analyze_items JOIN parameter_analyzes ON parameter_analyzes.id = analyze_items.analyze_id";
-//        dd($sql);
+//        $dateAll = AnalyzeItem::selectRaw('date_analyze, count(date_analyze) as c')->groupBy('date_analyze')->get();
 
         $dateAll = AnalyzeItem::selectRaw('parameter_id, result as c')
             ->where('tenant_id', '=', $empresa)
             ->where('location', '=', 'Entrada')
-            ->where('date_analyze', '>=', $dateInterval)
+            ->where('date_analyze', '=', $dateInterval)
             ->get();
         foreach($dateAll as $dataE) {
             $graficoE[ $dataE['parameter_id'] ] = intval($dataE['c']);
         }
 
+//        dd($dateAll);
 
 //        $graficoE = [
 //            'Temperatura ºC' => 31.2,
@@ -114,7 +113,7 @@ class HomeController extends Controller
         $labelsS = json_encode(array_keys($graficoS));
         $valuesS = json_encode(array_values($graficoS));
 
-        return view('admin.dashboards.dash-ete', compact('labelsE', 'valuesE', 'labelsS', 'valuesS', 'interval', 'groupDate', 'analyzes'));
+        return view('admin.dashboards.dash-ete', compact('labelsE', 'valuesE', 'labelsS', 'valuesS', 'interval', 'groupDate'));
     }
 
     public function dashDoc()

@@ -19,7 +19,7 @@ class CreateEquipmentsTable extends Migration
             $table->string('serial');
             $table->string('name');
             $table->string('description')->nullable();
-            $table->enum('status', ['G', 'B', 'M'])->default('G');
+            $table->enum('status', ['F', 'M', 'Q'])->default('F');
             $table->timestamps();
 
             $table->foreign('tenant_id')

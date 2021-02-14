@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Equipment extends Model
 {
     use HasFactory;
-    use TenantTrait;
+//    use TenantTrait;
 
     protected $table = 'equipments';
     protected $fillable = ['serial', 'name', 'description', 'tenant_id', 'status'];
